@@ -203,7 +203,7 @@ section{
   padding: 1rem 0;
   margin-bottom: 2rem;
 }
-
+/*
 .home .doctor-image{
   flex: 1;
   display: flex;
@@ -221,7 +221,7 @@ section{
   object-fit: contain;
   filter: drop-shadow(0 10px 30px rgba(53, 51, 132, 0.3));
 }
-
+*/
 /* about us */
 .about{
   background: var(--light);
@@ -864,4 +864,5 @@ section{
     font-size: 3.5rem;
   }
 }
+
 
