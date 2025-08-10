@@ -10,7 +10,7 @@
   --light: #f8fafc;
   --gray: #64748b;
   --light-gray: #e2e8f0;
-  --cosmos-gradient: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+  --cosmos-gradient: #353384;
   --box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
   --border-radius: 1rem;
 }
@@ -847,3 +847,4 @@ section{
     font-size: 3.5rem;
   }
 }
+
