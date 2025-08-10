@@ -11,7 +11,6 @@
   --light: #f8fafc;
   --gray: #64748b;
   --light-gray: #e2e8f0;
-  --cosmos-gradient: #0057a3;
   --border-radius: 1rem;
 }
 
@@ -55,14 +54,10 @@ section{
 .heading{
   font-size: 4rem;
   text-align: center;
-  color: var(--dark);
+  color: var(--primary);
   text-transform: uppercase;
   font-weight: 800;
   margin-bottom: 3rem;
-  background: var(--cosmos-gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   letter-spacing: -0.02em;
 }
 
@@ -71,7 +66,7 @@ section{
   display: inline-block;
   padding: 1.2rem 3rem;
   border-radius: var(--border-radius);
-  background: var(--cosmos-gradient);
+  background: var(--primary);
   font-size: 1.6rem;
   color: var(--white);
   cursor: pointer;
@@ -166,11 +161,12 @@ section{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, rgba(53, 51, 132, 0.1) 0%, rgba(0, 87, 163, 0.1) 100%), 
-              url('https://images.pexels.com/photos/3825688/pexels-photo-3825688.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1') no-repeat;
+  background: url('https://images.pexels.com/photos/3825688/pexels-photo-3825688.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1') no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
+  justify-content: space-between;
+  padding: 0 7%;
 }
 
 .home::before{
@@ -184,11 +180,11 @@ section{
 }
 
 .home .content{
-  max-width: 60rem;
+  max-width: 50rem;
   padding-top: 10rem;
-  padding-left: 6rem;
   position: relative;
   z-index: 2;
+  flex: 1;
 }
 
 .home .content h3{
@@ -206,6 +202,24 @@ section{
   color: rgba(255, 255, 255, 0.9);
   padding: 1rem 0;
   margin-bottom: 2rem;
+}
+
+.home .doctor-image{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  max-width: 45rem;
+}
+
+.home .doctor-image img{
+  width: 100%;
+  max-width: 40rem;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 30px rgba(53, 51, 132, 0.3));
 }
 
 /* about us */
@@ -556,7 +570,7 @@ section{
   display: inline-block;
   margin-bottom: 1.5rem;
   padding: 0.8rem 1.5rem;
-  background: var(--cosmos-gradient);
+  background: var(--primary);
   color: var(--white);
   font-size: 1.2rem;
   border-radius: 2rem;
@@ -801,12 +815,26 @@ section{
     margin: 2.5rem;
   }
 
+  .home{
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4%;
+  }
+
   .home .content h3{
     font-size: 4.5rem;
   }
 
   .home .content{
-    padding-left: 2rem;
+    padding-left: 0;
+    max-width: 100%;
+    order: 2;
+  }
+
+  .home .doctor-image{
+    order: 1;
+    max-width: 30rem;
+    margin-bottom: 3rem;
   }
 
   .contact form .input-box input{
@@ -836,4 +864,3 @@ section{
     font-size: 3.5rem;
   }
 }
-
