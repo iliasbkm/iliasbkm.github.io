@@ -324,12 +324,31 @@
 
             <span>type de projet:</span>
             <select name="type_projet" class="box" required>
-                <option value="">choisissez votre besoin</option>
-                <option value="rdv">gestion des rendez-vous</option>
-                <option value="dossiers">dossiers patients</option>
-                <option value="mobile">application mobile</option>
-                <option value="complet">solution complète</option>
-                <option value="consultation">consultation</option>
+                 <optgroup label="📅 Gestion des rendez-vous">
+                    <option value="rdv_simple">Planning de rendez-vous simple</option>
+                    <option value="rdv_avance">Système de réservation en ligne</option>
+                    <option value="rdv_rappels">Avec rappels automatiques SMS/Email</option>
+                </optgroup>
+                <optgroup label="📋 Dossiers et données">
+                    <option value="dossiers_basic">Dossiers patients électroniques</option>
+                    <option value="dossiers_complet">Gestion complète avec historique</option>
+                    <option value="facturation">Facturation et comptabilité</option>
+                </optgroup>
+                <optgroup label="📱 Applications mobiles">
+                    <option value="app_patients">App pour vos patients</option>
+                    <option value="app_medecin">App pour votre cabinet</option>
+                    <option value="telemedicine">Téléconsultation</option>
+                </optgroup>
+                <optgroup label="🔧 Solutions spécialisées">
+                    <option value="laboratoire">Gestion de laboratoire</option>
+                    <option value="pharmacie">Interface pharmacie</option>
+                    <option value="imagerie">Gestion d'imagerie médicale</option>
+                </optgroup>
+                <optgroup label="💼 Services">
+                    <option value="consultation">Consultation personnalisée</option>
+                    <option value="formation">Formation équipe</option>
+                    <option value="maintenance">Maintenance et support</option>
+                </optgroup>
             </select>
 
             <span>date souhaitée:</span>
@@ -388,6 +407,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
