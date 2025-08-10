@@ -309,21 +309,21 @@
     <section id="contact" class="contact">
         <h1 class="heading">Contactez-nous</h1>
 
-        <form action="">
+        <form id="contactForm" action="contact.php" method="POST">
             <span>votre nom:</span>
             <div class="input-box">
-                <input type="text" placeholder="prénom" required>
-                <input type="text" placeholder="nom" required>
+                <input type="text" name="prenom" placeholder="prénom" required>
+                <input type="text" name="nom" placeholder="nom" required>
             </div>
 
             <span>votre email:</span>
-            <input type="email" class="box" placeholder="votre adresse email" required>
+            <input type="email" name="email" class="box" placeholder="votre adresse email" required>
 
             <span>votre téléphone:</span>
-            <input type="tel" class="box" placeholder="votre numéro de téléphone" required>
+            <input type="tel" name="telephone" class="box" placeholder="votre numéro de téléphone" required>
 
             <span>type de projet:</span>
-            <select class="box" required>
+            <select name="type_projet" class="box" required>
                 <option value="">choisissez votre besoin</option>
                 <option value="rdv">gestion des rendez-vous</option>
                 <option value="dossiers">dossiers patients</option>
@@ -333,10 +333,10 @@
             </select>
 
             <span>date souhaitée:</span>
-            <input type="datetime-local" class="box" required>
+            <input type="datetime-local" name="date_souhaitee" class="box" required>
 
             <span>message (optionnel):</span>
-            <textarea class="box" placeholder="décrivez votre projet..." rows="5"></textarea>
+            <textarea name="message" class="box" placeholder="décrivez votre projet..." rows="5"></textarea>
 
             <input type="submit" class="btn" value="envoyer la demande">
         </form>
@@ -388,7 +388,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
