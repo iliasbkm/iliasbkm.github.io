@@ -309,7 +309,7 @@
     <section id="contact" class="contact">
         <h1 class="heading">Contactez-nous</h1>
 
-        <form id="contactForm" action="contact.php" method="POST">
+        <form id="contactForm" action="contact.php" method="POST" onsubmit="return handleFormSubmit(this)">
             <span>votre nom:</span>
             <div class="input-box">
                 <input type="text" name="prenom" placeholder="prénom" required>
@@ -407,6 +407,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
