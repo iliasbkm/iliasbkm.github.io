@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root{
-  --primary: #353384;
-  --secondary: #0057a3;
+  --primary: #0057a3 ;
+  --secondary: #353384;
   --accent: #0076b3;
   --tertiary: #0094b6;
   --dark: #0f1419;
@@ -848,3 +848,4 @@ section{
     font-size: 3.5rem;
   }
 }
+
