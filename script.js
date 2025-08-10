@@ -243,50 +243,74 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Swiper disponible:', typeof Swiper !== 'undefined');
 });
 
-// Gestion du formulaire de contact
+// Gestion du formulaire de contact pour Namecheap
+function handleFormSubmit(form) {
+    const submitBtn = form.querySelector('input[type="submit"]');
+    const originalText = submitBtn.value;
+    
+    // Animation pendant soumission
+    submitBtn.value = 'Envoi en cours...';
+    submitBtn.disabled = true;
+    submitBtn.style.background = 'var(--secondary)';
+    
+    // Le formulaire se soumettra normalement
+    return true;
+}
+
+// Version alternative avec AJAX pour test
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
+        // Essayer d'abord l'AJAX, sinon soumission normale
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = contactForm.querySelector('input[type="submit"]');
-            const originalBtnText = submitBtn.value;
-            
-            // Désactiver le bouton et changer le texte
-            submitBtn.disabled = true;
-            submitBtn.value = 'Envoi en cours...';
-            
-            // Préparer les données du formulaire
-            const formData = new FormData(contactForm);
-            
-            try {
-                const response = await fetch('contact.php', {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    showMessage(result.message, 'success');
-                    contactForm.reset();
-                } else {
-                    showMessage(result.error || 'Une erreur est survenue', 'error');
-                }
-                
-            } catch (error) {
-                console.error('Erreur:', error);
-                showMessage('Erreur de connexion. Veuillez réessayer.', 'error');
+            // Si on est en local ou sur un serveur de test, utiliser AJAX
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                e.preventDefault();
+                await submitWithAjax(this);
             }
-            
-            // Réactiver le bouton
-            submitBtn.disabled = false;
-            submitBtn.value = originalBtnText;
+            // Sinon, laisser la soumission normale se faire
         });
     }
 });
+
+async function submitWithAjax(form) {
+    const submitBtn = form.querySelector('input[type="submit"]');
+    const originalBtnText = submitBtn.value;
+    
+    submitBtn.disabled = true;
+    submitBtn.value = 'Envoi en cours...';
+    
+    try {
+        const formData = new FormData(form);
+        const response = await fetch('contact.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            if (result.success) {
+                showMessage(result.message, 'success');
+                form.reset();
+            } else {
+                showMessage(result.error || 'Erreur lors de l\'envoi', 'error');
+            }
+        } else {
+            throw new Error('Erreur serveur');
+        }
+    } catch (error) {
+        console.error('Erreur AJAX:', error);
+        // Fallback: soumission normale du formulaire
+        submitBtn.disabled = false;
+        submitBtn.value = originalBtnText;
+        form.submit();
+        return;
+    }
+    
+    submitBtn.disabled = false;
+    submitBtn.value = originalBtnText;
+}
 
 // Fonction pour afficher les messages
 function showMessage(message, type) {
