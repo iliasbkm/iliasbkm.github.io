@@ -53,33 +53,40 @@ document.querySelectorAll('.box, .slide').forEach(el => {
 });
 
 // Swiper pour le carousel d'équipe
-var swiper = new Swiper(".team-slider", {
-    loop: true,
-    grabCursor: true,
-    spaceBetween: 30,
-    centeredSlides: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        0: {
-            slidesPerView: 1,
-        },
-        768: {
-            slidesPerView: 2,
-        },
-        1024: {
-            slidesPerView: 3,
-        },
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        var swiper = new Swiper(".team-slider", {
+            loop: true,
+            grabCursor: true,
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            }
+        });
+        console.log('Swiper initialisé avec succès');
+    } else {
+        console.error('Swiper n\'est pas disponible');
     }
 });
 
@@ -161,13 +168,13 @@ formInputs.forEach(input => {
             this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
         } else {
             this.style.borderColor = 'var(--primary)';
-            this.style.boxShadow = '0 0 0 3px rgba(168, 85, 247, 0.1)';
+            this.style.boxShadow = '0 0 0 3px rgba(53, 51, 132, 0.1)';
         }
     });
     
     input.addEventListener('focus', function() {
         this.style.borderColor = 'var(--primary)';
-        this.style.boxShadow = '0 0 0 3px rgba(168, 85, 247, 0.1)';
+        this.style.boxShadow = '0 0 0 3px rgba(53, 51, 132, 0.1)';
     });
 });
 
@@ -229,3 +236,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log('Binet - Site web chargé avec succès ! 🚀');
+
+// Debug - Vérification des éléments
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM chargé');
+    console.log('Menu button:', document.querySelector('#menu-btn'));
+    console.log('Navbar:', document.querySelector('.header .navbar'));
+    console.log('Team slider:', document.querySelector('.team-slider'));
+    console.log('Swiper disponible:', typeof Swiper !== 'undefined');
+});
