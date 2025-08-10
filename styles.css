@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root{
-  --primary: #0057a3 ;
-  --secondary: #353384;
+  --primary: #353384;
+  --secondary: #0057a3;
   --accent: #0076b3;
   --tertiary: #0094b6;
   --dark: #0f1419;
@@ -12,7 +12,6 @@
   --gray: #64748b;
   --light-gray: #e2e8f0;
   --cosmos-gradient: linear-gradient(135deg, #353384 0%, #0057a3 50%, #0076b3 75%, #0094b6 100%);
-  --box-shadow: 0 10px 30px rgba(53, 51, 132, 0.1);
   --border-radius: 1rem;
 }
 
@@ -78,13 +77,11 @@ section{
   cursor: pointer;
   font-weight: 600;
   text-transform: capitalize;
-  box-shadow: var(--box-shadow);
   border: 2px solid transparent;
 }
 
 .btn:hover{
   transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(53, 51, 132, 0.2);
 }
 
 /* header */
@@ -99,7 +96,6 @@ section{
   padding: 2rem 7%;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   border-bottom: 1px solid rgba(53, 51, 132, 0.1);
 }
@@ -233,7 +229,6 @@ section{
   height: 50rem;
   border-radius: var(--border-radius);
   object-fit: cover;
-  box-shadow: var(--box-shadow);
 }
 
 .about .row .content{
@@ -301,7 +296,6 @@ section{
 .services .box-container .box:hover{
   transform: translateY(-10px);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px rgba(53, 51, 132, 0.2);
 }
 
 .services .box-container .box .service-icon{
@@ -345,13 +339,11 @@ section{
   background: var(--white);
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
 }
 
 .team .slide:hover{
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(53, 51, 132, 0.15);
 }
 
 .team .slide .image{
@@ -456,7 +448,6 @@ section{
 
 .pricing .box-container .box:hover{
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(53, 51, 132, 0.2);
 }
 
 .pricing .box-container .active{
@@ -533,13 +524,11 @@ section{
   background: var(--white);
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: var(--box-shadow);
   transition: all 0.3s ease;
 }
 
 .blog .box-container .box:hover{
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(53, 51, 132, 0.1);
 }
 
 .blog .box-container .box .image{
@@ -792,7 +781,6 @@ section{
     top: 115%;
     right: 4%;
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
     width: 30rem;
     border: 1px solid rgba(53, 51, 132, 0.2);
     background: var(--white);
@@ -848,4 +836,3 @@ section{
     font-size: 3.5rem;
   }
 }
-
