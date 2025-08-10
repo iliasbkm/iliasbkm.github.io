@@ -242,3 +242,92 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Team slider:', document.querySelector('.team-slider'));
     console.log('Swiper disponible:', typeof Swiper !== 'undefined');
 });
+
+// Gestion du formulaire de contact
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('input[type="submit"]');
+            const originalBtnText = submitBtn.value;
+            
+            // Désactiver le bouton et changer le texte
+            submitBtn.disabled = true;
+            submitBtn.value = 'Envoi en cours...';
+            
+            // Préparer les données du formulaire
+            const formData = new FormData(contactForm);
+            
+            try {
+                const response = await fetch('contact.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showMessage(result.message, 'success');
+                    contactForm.reset();
+                } else {
+                    showMessage(result.error || 'Une erreur est survenue', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Erreur:', error);
+                showMessage('Erreur de connexion. Veuillez réessayer.', 'error');
+            }
+            
+            // Réactiver le bouton
+            submitBtn.disabled = false;
+            submitBtn.value = originalBtnText;
+        });
+    }
+});
+
+// Fonction pour afficher les messages
+function showMessage(message, type) {
+    // Supprimer les anciens messages
+    const existingMessages = document.querySelectorAll('.form-message');
+    existingMessages.forEach(msg => msg.remove());
+    
+    // Créer le nouveau message
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.textContent = message;
+    
+    // Styles pour le message
+    messageDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 25px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        z-index: 9999;
+        max-width: 400px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        ${type === 'success' ? 'background: #22c55e;' : 'background: #ef4444;'}
+    `;
+    
+    document.body.appendChild(messageDiv);
+    
+    // Animation d'entrée
+    setTimeout(() => {
+        messageDiv.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Suppression automatique après 5 secondes
+    setTimeout(() => {
+        messageDiv.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            messageDiv.remove();
+        }, 300);
+    }, 5000);
+}
