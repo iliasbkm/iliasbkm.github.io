@@ -1,0 +1,22 @@
+{
+    "name": "binet/medical-contact-backend",
+    "description": "Backend PHP pour le formulaire de contact Binet - Applications Médicales",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "phpoffice/phpspreadsheet": "^1.29"
+    },
+    "autoload": {
+        "psr-4": {
+            "Binet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Binet Medical Applications",
+            "email": "contact@binet-medical.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
