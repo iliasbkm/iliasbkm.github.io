@@ -1,42 +1,43 @@
 <?php
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: Content-Type');
+// Configuration pour hébergement Namecheap
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Headers pour compatibilité
+header('Content-Type: text/html; charset=UTF-8');
 
 // Vérifier si la requête est POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['error' => 'Méthode non autorisée']);
-    exit;
+    die('Méthode non autorisée');
 }
 
 // Récupérer les données du formulaire
-$prenom = $_POST['prenom'] ?? '';
-$nom = $_POST['nom'] ?? '';
-$email = $_POST['email'] ?? '';
-$telephone = $_POST['telephone'] ?? '';
+$prenom = trim($_POST['prenom'] ?? '');
+$nom = trim($_POST['nom'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$telephone = trim($_POST['telephone'] ?? '');
 $type_projet = $_POST['type_projet'] ?? '';
 $date_souhaitee = $_POST['date_souhaitee'] ?? '';
-$message = $_POST['message'] ?? '';
+$message = trim($_POST['message'] ?? '');
 
 // Validation des données
-if (empty($prenom) || empty($nom) || empty($email) || empty($telephone) || empty($type_projet)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Tous les champs obligatoires doivent être remplis']);
-    exit;
-}
+$errors = [];
 
-// Validation de l'email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['error' => 'Adresse email invalide']);
+if (empty($prenom)) $errors[] = 'Le prénom est requis';
+if (empty($nom)) $errors[] = 'Le nom est requis';
+if (empty($email)) $errors[] = 'L\'email est requis';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Email invalide';
+if (empty($telephone)) $errors[] = 'Le téléphone est requis';
+if (empty($type_projet)) $errors[] = 'Le type de projet est requis';
+
+if (!empty($errors)) {
+    showErrorPage($errors);
     exit;
 }
 
 try {
-    // Créer ou ouvrir le fichier Excel
-    $filename = 'contacts_binet.xlsx';
+    // Données à sauvegarder
     $data = [
         'Date de soumission' => date('Y-m-d H:i:s'),
         'Prénom' => $prenom,
@@ -48,40 +49,62 @@ try {
         'Message' => $message
     ];
     
-    // Utiliser PhpSpreadsheet si disponible, sinon créer un CSV
-    if (class_exists('PhpOffice\PhpSpreadsheet\Spreadsheet')) {
-        saveToExcel($filename, $data);
-    } else {
-        saveToCSV($filename, $data);
-    }
+    // Sauvegarder dans un fichier CSV (plus simple pour Namecheap)
+    saveToCSV('contacts_binet.csv', $data);
     
-    // Réponse de succès
-    echo json_encode([
-        'success' => true,
-        'message' => 'Votre demande a été envoyée avec succès ! Nous vous contacterons bientôt.'
-    ]);
+    // Optionnel: Envoyer un email de notification
+    sendNotificationEmail($data);
+    
+    // Afficher la page de succès
+    showSuccessPage();
     
 } catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(['error' => 'Erreur lors de la sauvegarde : ' . $e->getMessage()]);
+    showErrorPage(['Erreur lors de la sauvegarde : ' . $e->getMessage()]);
 }
 
 function getTypeProjet($type) {
     $types = [
+        // Gestion des rendez-vous
+        'rdv_simple' => 'Planning de rendez-vous simple',
+        'rdv_avance' => 'Système de réservation en ligne',
+        'rdv_rappels' => 'Rendez-vous avec rappels automatiques SMS/Email',
+        
+        // Dossiers et données
+        'dossiers_basic' => 'Dossiers patients électroniques',
+        'dossiers_complet' => 'Gestion complète avec historique',
+        'facturation' => 'Facturation et comptabilité',
+        
+        // Applications mobiles
+        'app_patients' => 'Application mobile pour patients',
+        'app_medecin' => 'Application mobile pour cabinet',
+        'telemedicine' => 'Téléconsultation',
+        
+        // Solutions spécialisées
+        'laboratoire' => 'Gestion de laboratoire',
+        'pharmacie' => 'Interface pharmacie',
+        'imagerie' => 'Gestion d\'imagerie médicale',
+        
+        // Services
+        'consultation' => 'Consultation personnalisée',
+        'formation' => 'Formation équipe',
+        'maintenance' => 'Maintenance et support',
+        
+        // Anciennes valeurs pour compatibilité
         'rdv' => 'Gestion des rendez-vous',
         'dossiers' => 'Dossiers patients',
         'mobile' => 'Application mobile',
-        'complet' => 'Solution complète',
-        'consultation' => 'Consultation'
+        'complet' => 'Solution complète'
     ];
     return $types[$type] ?? $type;
 }
 
 function saveToCSV($filename, $data) {
-    $csvFile = str_replace('.xlsx', '.csv', $filename);
-    $fileExists = file_exists($csvFile);
+    $fileExists = file_exists($filename);
     
-    $file = fopen($csvFile, 'a');
+    $file = fopen($filename, 'a');
+    if (!$file) {
+        throw new Exception('Impossible de créer le fichier');
+    }
     
     // Ajouter l'en-tête si le fichier n'existe pas
     if (!$fileExists) {
@@ -93,59 +116,89 @@ function saveToCSV($filename, $data) {
     fclose($file);
 }
 
-function saveToExcel($filename, $data) {
-    require_once 'vendor/autoload.php';
+function sendNotificationEmail($data) {
+    $to = 'contact@binetmaroc.me'; // Votre email
+    $subject = 'Nouvelle demande de contact - Binet';
     
-    use PhpOffice\PhpSpreadsheet\Spreadsheet;
-    use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-    use PhpOffice\PhpSpreadsheet\Style\Color;
-    use PhpOffice\PhpSpreadsheet\Style\Fill;
-    
-    $fileExists = file_exists($filename);
-    
-    if ($fileExists) {
-        // Charger le fichier existant
-        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-        $spreadsheet = $reader->load($filename);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        // Trouver la prochaine ligne vide
-        $lastRow = $worksheet->getHighestRow() + 1;
-    } else {
-        // Créer un nouveau fichier
-        $spreadsheet = new Spreadsheet();
-        $worksheet = $spreadsheet->getActiveSheet();
-        $worksheet->setTitle('Contacts Binet');
-        
-        // Ajouter l'en-tête
-        $headers = array_keys($data);
-        $col = 'A';
-        foreach ($headers as $header) {
-            $worksheet->setCellValue($col . '1', $header);
-            $worksheet->getStyle($col . '1')->getFill()
-                ->setFillType(Fill::FILL_SOLID)
-                ->getStartColor()->setARGB('FF353384');
-            $worksheet->getStyle($col . '1')->getFont()->getColor()->setARGB(Color::COLOR_WHITE);
-            $worksheet->getStyle($col . '1')->getFont()->setBold(true);
-            $col++;
-        }
-        $lastRow = 2;
+    $message = "Nouvelle demande de contact reçue :\n\n";
+    foreach ($data as $key => $value) {
+        $message .= "$key : $value\n";
     }
     
-    // Ajouter les nouvelles données
-    $col = 'A';
-    foreach ($data as $value) {
-        $worksheet->setCellValue($col . $lastRow, $value);
-        $col++;
-    }
+    $headers = 'From: noreply@' . $_SERVER['HTTP_HOST'] . "\r\n" .
+               'Reply-To: ' . $data['Email'] . "\r\n" .
+               'X-Mailer: PHP/' . phpversion();
     
-    // Ajuster la largeur des colonnes
-    foreach (range('A', 'H') as $col) {
-        $worksheet->getColumnDimension($col)->setAutoSize(true);
-    }
-    
-    // Sauvegarder
-    $writer = new Xlsx($spreadsheet);
-    $writer->save($filename);
+    @mail($to, $subject, $message, $headers);
+}
+
+function showSuccessPage() {
+    ?>
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Message envoyé - Binet</title>
+        <style>
+            body { font-family: 'Inter', sans-serif; margin: 0; padding: 20px; background: #f8fafc; }
+            .container { max-width: 600px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
+            .success-icon { font-size: 4rem; color: #22c55e; margin-bottom: 20px; }
+            h1 { color: #353384; margin-bottom: 20px; }
+            p { color: #64748b; line-height: 1.6; margin-bottom: 30px; }
+            .btn { display: inline-block; padding: 12px 30px; background: #353384; color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s ease; }
+            .btn:hover { background: #0057a3; transform: translateY(-2px); }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="success-icon">✅</div>
+            <h1>Message envoyé avec succès !</h1>
+            <p>Merci pour votre intérêt pour nos services. Nous avons bien reçu votre demande et nous vous contacterons dans les plus brefs délais.</p>
+            <p>Notre équipe étudiera votre projet et vous proposera une solution adaptée à vos besoins médicaux.</p>
+            <a href="index.html" class="btn">Retour à l'accueil</a>
+        </div>
+        <script>
+            // Redirection automatique après 5 secondes
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 5000);
+        </script>
+    </body>
+    </html>
+    <?php
+}
+
+function showErrorPage($errors) {
+    ?>
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Erreur - Binet</title>
+        <style>
+            body { font-family: 'Inter', sans-serif; margin: 0; padding: 20px; background: #f8fafc; }
+            .container { max-width: 600px; margin: 50px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
+            .error-icon { font-size: 4rem; color: #ef4444; margin-bottom: 20px; }
+            h1 { color: #ef4444; margin-bottom: 20px; }
+            ul { text-align: left; color: #64748b; }
+            .btn { display: inline-block; padding: 12px 30px; background: #353384; color: white; text-decoration: none; border-radius: 8px; margin-top: 20px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="error-icon">❌</div>
+            <h1>Erreur lors de l'envoi</h1>
+            <ul>
+                <?php foreach ($errors as $error): ?>
+                    <li><?php echo htmlspecialchars($error); ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <a href="index.html#contact" class="btn">Retour au formulaire</a>
+        </div>
+    </body>
+    </html>
+    <?php
 }
 ?>
