@@ -50,7 +50,28 @@ try {
     ];
     
     // Sauvegarder dans un fichier CSV (plus simple pour Namecheap)
-    saveToCSV('contacts_binet.csv', $data);
+    // Option 1: Dans le même dossier (par défaut)
+    try {
+        saveToCSV('contacts_binet.csv', $data);
+    } catch (Exception $e) {
+        // Fallback: utiliser file_put_contents
+        try {
+            saveToCSV_Alternative('contacts_binet.csv', $data);
+        } catch (Exception $e2) {
+            // Fallback final: envoyer seulement par email
+            sendNotificationEmail($data);
+            // Log l'erreur mais continuer
+            error_log("Erreur sauvegarde CSV: " . $e2->getMessage());
+        }
+    }
+    
+    // Option 2: Dans un sous-dossier (décommentez si besoin)
+    // if (!is_dir('data')) mkdir('data', 0755);
+    // saveToCSV('data/contacts_binet.csv', $data);
+    
+    // Option 3: Avec horodatage (un fichier par mois)
+    // $monthly_file = 'contacts_' . date('Y-m') . '.csv';
+    // saveToCSV($monthly_file, $data);
     
     // Optionnel: Envoyer un email de notification
     sendNotificationEmail($data);
@@ -99,21 +120,72 @@ function getTypeProjet($type) {
 }
 
 function saveToCSV($filename, $data) {
+    // Debug: Vérifier le répertoire courant
+    $currentDir = getcwd();
+    $fullPath = $currentDir . '/' . $filename;
+    
+    // Debug: Vérifier les permissions
+    if (!is_writable($currentDir)) {
+        throw new Exception("Le répertoire n'est pas accessible en écriture: $currentDir");
+    }
+    
     $fileExists = file_exists($filename);
     
+    // Essayer d'ouvrir le fichier en mode ajout
     $file = fopen($filename, 'a');
     if (!$file) {
-        throw new Exception('Impossible de créer le fichier');
+        // Si ça échoue, essayer de créer le fichier d'abord
+        $file = fopen($filename, 'w');
+        if (!$file) {
+            throw new Exception("Impossible de créer le fichier: $fullPath. Vérifiez les permissions.");
+        }
+        $fileExists = false;
     }
     
     // Ajouter l'en-tête si le fichier n'existe pas
     if (!$fileExists) {
-        fputcsv($file, array_keys($data), ';');
+        if (!fputcsv($file, array_keys($data), ';')) {
+            fclose($file);
+            throw new Exception("Erreur lors de l'écriture de l'en-tête");
+        }
     }
     
     // Ajouter les données
-    fputcsv($file, array_values($data), ';');
+    if (!fputcsv($file, array_values($data), ';')) {
+        fclose($file);
+        throw new Exception("Erreur lors de l'écriture des données");
+    }
+    
     fclose($file);
+    
+    // Vérifier que le fichier a bien été créé
+    if (!file_exists($filename)) {
+        throw new Exception("Le fichier n'a pas été créé: $fullPath");
+    }
+}
+
+function saveToCSV_Alternative($filename, $data) {
+    $fileExists = file_exists($filename);
+    $csvLine = '';
+    
+    // Préparer la ligne CSV
+    if (!$fileExists) {
+        // Ajouter l'en-tête
+        $csvLine .= implode(';', array_keys($data)) . "\n";
+    }
+    
+    // Ajouter les données
+    $csvLine .= implode(';', array_map(function($value) {
+        // Échapper les caractères spéciaux
+        return '"' . str_replace('"', '""', $value) . '"';
+    }, array_values($data))) . "\n";
+    
+    // Écrire dans le fichier
+    $result = file_put_contents($filename, $csvLine, FILE_APPEND | LOCK_EX);
+    
+    if ($result === false) {
+        throw new Exception("Impossible d'écrire dans le fichier avec file_put_contents");
+    }
 }
 
 function sendNotificationEmail($data) {
