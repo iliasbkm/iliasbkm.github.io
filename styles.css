@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 :root{
-  --primary: #a855f7;
-  --secondary: #06b6d4;
-  --accent: #8b5cf6;
+  --primary: #353384;
+  --secondary: #0076b3;
+  --accent: #00afb2;
   --dark: #0f1419;
   --darker: #0a0f14;
   --white: #ffffff;
@@ -847,4 +847,5 @@ section{
     font-size: 3.5rem;
   }
 }
+
 
