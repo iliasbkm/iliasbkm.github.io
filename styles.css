@@ -161,7 +161,7 @@ section{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('https://images.pexels.com/photos/3825688/pexels-photo-3825688.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1') no-repeat;
+  background: url('./cabinet.png') no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -864,3 +864,4 @@ section{
     font-size: 3.5rem;
   }
 }
+
