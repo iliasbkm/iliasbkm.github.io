@@ -14,9 +14,10 @@
     "authors": [
         {
             "name": "Binet Medical Applications",
-            "email": "contact@binet-medical.com"
+            "email": "support@binetmaroc.me"
         }
     ],
     "minimum-stability": "stable",
     "prefer-stable": true
 }
+
