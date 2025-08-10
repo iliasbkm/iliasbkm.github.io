@@ -165,16 +165,13 @@ formInputs.forEach(input => {
     input.addEventListener('blur', function() {
         if (this.hasAttribute('required') && !this.value.trim()) {
             this.style.borderColor = '#ef4444';
-            this.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
         } else {
             this.style.borderColor = 'var(--primary)';
-            this.style.boxShadow = '0 0 0 3px rgba(53, 51, 132, 0.1)';
         }
     });
     
     input.addEventListener('focus', function() {
         this.style.borderColor = 'var(--primary)';
-        this.style.boxShadow = '0 0 0 3px rgba(53, 51, 132, 0.1)';
     });
 });
 
