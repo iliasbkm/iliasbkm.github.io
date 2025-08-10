@@ -11,7 +11,7 @@
   --light: #f8fafc;
   --gray: #64748b;
   --light-gray: #e2e8f0;
-  --cosmos-gradient: linear-gradient(135deg, #353384 0%, #0057a3 50%, #0076b3 75%, #0094b6 100%);
+  --cosmos-gradient: #0057a3;
   --border-radius: 1rem;
 }
 
@@ -836,3 +836,4 @@ section{
     font-size: 3.5rem;
   }
 }
+
