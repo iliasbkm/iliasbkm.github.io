@@ -161,7 +161,7 @@ section{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: url('./cabinet.png') no-repeat;
+  background: url('../images/cabinet.png') no-repeat;
   background-size: cover;
   background-position: center;
   position: relative;
