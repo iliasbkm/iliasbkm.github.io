@@ -102,6 +102,19 @@ section{
   display: flex;
   align-items: center;
   gap: 1rem;
+  height: 4rem;
+}
+
+.header .logo img{
+  height: 100%;
+  width: auto;
+  max-height: 4rem;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.header .logo img:hover{
+  transform: scale(1.05);
 }
 
 .header .logo i{
@@ -864,4 +877,3 @@ section{
     font-size: 3.5rem;
   }
 }
-
