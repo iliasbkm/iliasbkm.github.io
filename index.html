@@ -24,8 +24,10 @@
             <a href="#about">à propos</a>
             <a href="#services">services</a>
             <a href="#team">équipe</a>
+            <a href="portfolio.html">qui suis-je</a>
             <a href="#pricing">tarifs</a>
             <a href="#blog">actualités</a>
+
         </nav>
         <!--   end navbar -->
         <a href="#contact" class="btn">Je veux digitaliser mon cabinet</a>
@@ -131,16 +133,16 @@
         <div class="swiper team-slider">
             <div class="swiper-wrapper">
                 <!--       start member card -->
-                <div class="swiper-slide slide">
+                <div class="swiper-slide slide" onclick="window.open('portfolio.html', '_blank')" style="cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                     <!--         image -->
                     <div class="image">
                         <img src="./ilias.jpeg" alt="Ilias Benkamoun">
                         <!--         share section -->
                         <div class="share">
-                            <a href="https://www.linkedin.com/in/iliasbenkamoun/" class="fab fa-linkedin"></a>
-                            <a href="#contact" class="fab fa-twitter"></a>
-                            <a href="https://github.com/benkamounilias" class="fab fa-github"></a>
-                            <a href="mailto:ilias@binetmaroc.me" class="fas fa-envelope"></a>
+                            <a href="https://www.linkedin.com/in/iliasbenkamoun/" class="fab fa-linkedin" onclick="event.stopPropagation();"></a>
+                            <a href="#contact" class="fab fa-twitter" onclick="event.stopPropagation();"></a>
+                            <a href="https://github.com/benkamounilias" class="fab fa-github" onclick="event.stopPropagation();"></a>
+                            <a href="mailto:ilias@binetmaroc.me" class="fas fa-envelope" onclick="event.stopPropagation();"></a>
                         </div>
                     </div>
 
@@ -151,6 +153,11 @@
                                                 <br>
                         <h4>Créateur de solutions intelligentes basées sur l’IA</h4>
                         <h4>Concepteur de solutions intelligentes dédiées aux cabinets médicaux </h4>
+                        <div style="margin-top: 1.5rem; text-align: center;">
+                            <small style="color: var(--primary); font-weight: 600;">
+                                <i class="fas fa-mouse-pointer"></i> Cliquez pour voir mon portfolio complet
+                            </small>
+                        </div>
                     </div>
                 </div>
                 <!--       end member card-->
@@ -406,6 +413,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
