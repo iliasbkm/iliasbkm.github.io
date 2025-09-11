@@ -1,0 +1,233 @@
+\documentclass{modern-report}
+
+% =============================================================================
+% CONFIGURATION DU RAPPORT - À PERSONNALISER
+% =============================================================================
+
+% Informations du rapport
+\reporttitle{[TITRE DE VOTRE RAPPORT]}
+\reportsubtitle{[Sous-titre descriptif]}
+\reportauthor{[Votre Nom]}
+\reportdate{\today}  % Ou une date spécifique : {15 janvier 2025}
+\reportversion{Version 1.0}
+\reportclient{[Nom du Client]}
+\reportorganization{[Votre Organisation]}
+
+\begin{document}
+
+% =============================================================================
+% PAGE DE GARDE MODERNE
+% =============================================================================
+\makemoderncover
+
+% =============================================================================
+% TABLE DES MATIÈRES
+% =============================================================================
+\tableofcontents
+\clearpage
+
+% =============================================================================
+% RÉSUMÉ EXÉCUTIF
+% =============================================================================
+\chapter*{Résumé Exécutif}
+\addcontentsline{toc}{chapter}{Résumé Exécutif}
+
+\begin{modernbox}{Synthèse}
+% Remplacez ce texte par votre résumé exécutif
+Voici un résumé concis des points clés de votre rapport. Cette section doit présenter les éléments essentiels de manière claire et synthétique.
+
+\modernseparator
+
+\textbf{Objectifs principaux :}
+\begin{itemize}
+    \item Objectif 1
+    \item Objectif 2 
+    \item Objectif 3
+\end{itemize}
+\end{modernbox}
+
+% =============================================================================
+% CHAPITRES PRINCIPAUX
+% =============================================================================
+
+\chapter{Introduction}
+
+\section{Contexte et Enjeux}
+
+% Décrivez ici le contexte de votre projet ou étude
+Présentez ici le contexte général de votre rapport, les enjeux identifiés et la problématique à résoudre.
+
+\subsection{Problématique}
+
+% Définissez la problématique centrale
+Énoncez clairement la problématique que votre rapport traite.
+
+\begin{infobox}{Information Importante}
+Utilisez cette boîte pour mettre en évidence des informations importantes ou des points clés à retenir.
+\end{infobox}
+
+\section{Objectifs}
+
+% Listez vos objectifs
+Les objectifs de ce rapport sont les suivants :
+
+\begin{enumerate}
+    \item Premier objectif spécifique
+    \item Deuxième objectif mesurable
+    \item Troisième objectif atteignable
+\end{enumerate}
+
+\modernseparator
+
+\chapter{Analyse et Méthodologie}
+
+\section{Approche Méthodologique}
+
+% Décrivez votre méthodologie
+Présentez ici la méthodologie utilisée pour mener votre analyse ou réaliser votre projet.
+
+\subsection{Phase 1 : Analyse Préliminaire}
+
+% Décrivez la première phase
+Détaillez les étapes de votre phase d'analyse préliminaire.
+
+\subsection{Phase 2 : Mise en Œuvre}
+
+% Décrivez la phase de mise en œuvre
+Expliquez comment vous avez procédé pour la mise en œuvre de votre solution.
+
+\begin{warningbox}{Point d'Attention}
+Utilisez cette boîte pour signaler des points d'attention, des risques identifiés ou des précautions à prendre.
+\end{warningbox}
+
+\section{Outils et Technologies}
+
+% Si applicable, présentez vos outils
+\begin{table}[h]
+\centering
+\caption{Outils Utilisés}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\moderntablehead{Catégorie & Outil/Technologie} \\
+\midrule
+Analyse & [Nom de l'outil] \\
+Développement & [Framework utilisé] \\
+Base de données & [SGBD] \\
+Interface & [Framework UI] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\chapter{Résultats et Réalisations}
+
+\section{Principales Réalisations}
+
+% Présentez vos résultats
+Détaillez ici vos principales réalisations et les résultats obtenus.
+
+\subsection{Réalisation 1}
+
+% Première réalisation
+Description de votre première réalisation majeure.
+
+\subsection{Réalisation 2}
+
+% Deuxième réalisation
+Description de votre deuxième réalisation importante.
+
+\modernseparator
+
+\section{Indicateurs de Performance}
+
+% Si applicable, présentez vos KPI
+\begin{modernbox}{Métriques Clés}
+\begin{itemize}
+    \item Indicateur 1 : [Valeur et amélioration]
+    \item Indicateur 2 : [Résultat obtenu]
+    \item Indicateur 3 : [Performance mesurée]
+\end{itemize}
+\end{modernbox}
+
+\chapter{Recommandations et Perspectives}
+
+\section{Recommandations}
+
+% Vos recommandations
+Sur la base de cette analyse, nous formulons les recommandations suivantes :
+
+\begin{enumerate}
+    \item \textbf{Recommandation 1} : Description détaillée de la première recommandation
+    \item \textbf{Recommandation 2} : Explication de la deuxième recommandation
+    \item \textbf{Recommandation 3} : Présentation de la troisième recommandation
+\end{enumerate}
+
+\section{Plan d'Action}
+
+% Votre plan d'action
+\begin{infobox}{Prochaines Étapes}
+\begin{itemize}
+    \item \textbf{Court terme} : Actions à mener dans les 3 mois
+    \item \textbf{Moyen terme} : Objectifs à 6-12 mois
+    \item \textbf{Long terme} : Vision stratégique à 2-3 ans
+\end{itemize}
+\end{infobox}
+
+% =============================================================================
+% CONCLUSION
+% =============================================================================
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+% Votre conclusion
+Rédigez ici votre conclusion en reprenant les éléments clés de votre rapport et en soulignant les apports de votre travail.
+
+\begin{modernbox}{Synthèse Finale}
+\begin{itemize}
+    \item Résultat principal obtenu
+    \item Impact attendu ou mesuré
+    \item Valeur ajoutée apportée
+\end{itemize}
+\end{modernbox}
+
+\modernseparator
+
+\textit{[Ajoutez ici vos remerciements ou informations de contact si nécessaire]}
+
+% =============================================================================
+% ANNEXES (OPTIONNEL)
+% =============================================================================
+\appendix
+
+\chapter{Spécifications Techniques}
+% Annexes techniques si nécessaire
+
+\section{Configuration Système}
+
+Si votre rapport traite d'aspects techniques, vous pouvez détailler ici les spécifications système requises.
+
+\chapter{Documentation Complémentaire}
+% Autres annexes
+
+\section{Références}
+
+% Listez vos références bibliographiques
+\begin{itemize}
+    \item Référence 1
+    \item Référence 2
+    \item Référence 3
+\end{itemize}
+
+\section{Glossaire}
+
+% Définitions des termes techniques
+\begin{description}
+    \item[Terme 1] : Définition du premier terme
+    \item[Terme 2] : Explication du deuxième terme
+    \item[Terme 3] : Description du troisième terme
+\end{description}
+
+% =============================================================================
+% FIN DU DOCUMENT
+% =============================================================================
+
+\end{document}
