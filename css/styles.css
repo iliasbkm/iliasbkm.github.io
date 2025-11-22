@@ -286,7 +286,7 @@ section{
 
 /* nafas+ section */
 .nafas{
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   position: relative;
   overflow: hidden;
   padding: 6rem 7%;
@@ -349,7 +349,6 @@ section{
   color: var(--white);
   font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .nafas-subtitle{
@@ -481,38 +480,6 @@ section{
   background: transparent;
   color: var(--primary);
   transform: translateY(-3px);
-}
-
-.nafas-cta .btn-secondary{
-  background: transparent;
-  color: var(--primary);
-  padding: 1.5rem 3rem;
-  border-radius: var(--border-radius);
-  font-size: 1.6rem;
-  font-weight: 600;
-  border: 2px solid var(--primary);
-  transition: all 0.3s ease;
-}
-
-.nafas-cta .btn-secondary:hover{
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-3px);
-}
-
-.nafas-cta .coming-soon{
-  padding-top: 2rem;
-  border-top: 1px solid var(--light-gray);
-}
-
-.nafas-cta .coming-soon span{
-  font-size: 1.4rem;
-  color: var(--primary);
-  font-weight: 600;
-  background: rgba(53, 51, 132, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  display: inline-block;
 }
 
 /* services */
@@ -1115,8 +1082,7 @@ section{
     gap: 1.5rem;
   }
 
-  .nafas-cta .btn-primary,
-  .nafas-cta .btn-secondary{
+  .nafas-cta .btn-primary{
     width: 100%;
   }
 }
