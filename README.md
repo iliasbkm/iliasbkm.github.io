@@ -71,14 +71,15 @@ Ce site est conçu pour être déployé sur GitHub Pages. Pour l'utiliser :
 
 ## 📞 Contact
 
-- **Email** : contact@binet-solutions.fr
-- **Téléphone** : +33 1 23 45 67 89
-- **Zone de service** : Support et installation sur toute la France
+- **Email** : contact@binetmaroc.me
+- **Téléphone** : +212 7
+- **Zone de service** : Support et installation sur tout le Maroc
 
 ## 📄 Licence
 
 © 2025 Binet. Tous droits réservés.
 
 ---
+
 
 *Transformez votre cabinet médical avec des solutions numériques locales et sécurisées.*
