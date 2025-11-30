@@ -1,137 +1,408 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Scientifique - Ilias Benkamoun</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+   <link rel="icon" type="image/png" href="./images/binet-logo .png">
+    <link rel="apple-touch-icon" href="./images/binet-logo .png"> 
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Ilias Benkamoun</a>
+        <nav class="navbar">
+            <a href="#section1">Articles récents</a>
+            <a href="#section2">Tous les articles</a>
+            <a href="#section3">Contact & Présentation</a>
+            <a href="#section4">Projets académiques</a>
+            <a href="#section5">Vidéos scientifiques</a>
+        </nav>
+    </header>
 
-:root{
-  --primary: #4c1d95; /* Mauve */
-  --secondary: #1e3a8a; /* Bleu foncé */
-  --accent: #7c3aed; /* Violet */
-  --dark: #0f172a; /* Fond sombre */
-  --light: #f8fafc; /* Blanc cassé */
-  --gray: #64748b; /* Gris */
-  --border-radius: 1.2rem;
-}
+    <!-- Section 1: Navigation des nouveaux articles -->
+    <section id="section1" class="home">
+        <div class="content">
+            <h3>Explorer • Créer • Innover</h3>
+            <p>Bienvenue dans mon univers où la science, la technologie et la créativité se rencontrent. Découvrez mes recherches, projets et réflexions sur l'innovation technologique.</p>
+            <a href="#portfolio" class="btn">Découvrir mon travail</a>
+        </div>
+    </section>
+    <!-- end home -->
 
-body{
-  background: var(--dark);
-  color: var(--light);
-  font-family: 'Inter', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+    <!-- about -->
+    <section id="about" class="about">
+        <h1 class="heading">à propos</h1>
 
-/* Header */
-.header{
-  background: var(--dark);
-  color: var(--light);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 7%;
-  border-bottom: 1px solid var(--gray);
-}
+        <!--   content -->
+        <div class="row">
+            <!--     image -->
+            <div class="image">
+                <img src="./images/ilias.jpeg" alt="Ilias Benkamoun">
+            </div>
 
-.header .logo{
-  font-size: 2.4rem;
-  font-weight: bold;
-  color: var(--primary);
-}
+            <!--     info -->
+            <div class="content">
+                <h3>Chercheur, Développeur & Penseur</h3>
+                <p>Passionné par l'intersection entre technologie et société, je consacre mon temps à explorer comment l'innovation peut transformer notre quotidien. Mes recherches couvrent l'intelligence artificielle, le développement logiciel et les sciences sociales.</p>
+                <p>À travers ce magazine personnel, je partage mes découvertes, mes projets et mes réflexions sur les enjeux contemporains de la technologie et de l'innovation.</p>
+                <a href="#portfolio" class="btn">voir mon portfolio</a>
+            </div>
+        </div>
+    </section>
+    <!-- end about -->
 
-.header .navbar a{
-  color: var(--light);
-  margin: 0 1rem;
-  text-decoration: none;
-  font-size: 1.6rem;
-}
+    <!-- portfolio section -->
+    <section id="portfolio" class="portfolio">
+        <h1 class="heading">Portfolio</h1>
+        
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="web">Développement Web</button>
+            <button class="filter-btn" data-filter="ai">Intelligence Artificielle</button>
+            <button class="filter-btn" data-filter="research">Recherche</button>
+        </div>
 
-.header .navbar a:hover{
-  color: var(--accent);
-}
+        <div class="portfolio-container">
+            <div class="portfolio-item" data-category="ai">
+                <div class="portfolio-image">
+                    <img src="./images/nafas+.png" alt="Nafas+ Project">
+                    <div class="portfolio-overlay">
+                        <h3>Nafas+</h3>
+                        <p>Application de santé respiratoire avec IA</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="./images/binet-logo sc.png" alt="Plateforme Binet">
+                    <div class="portfolio-overlay">
+                        <h3>Plateforme Binet</h3>
+                        <p>Solutions digitales pour cabinets médicaux</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="research">
+                <div class="portfolio-image">
+                    <img src="./images/analyse.png" alt="Analyse de données">
+                    <div class="portfolio-overlay">
+                        <h3>Analyse Prédictive</h3>
+                        <p>Recherche en sciences des données</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end portfolio section -->
 
-/* Section 1 */
-.section1{
-  background: var(--primary);
-  color: var(--light);
-  padding: 4rem 7%;
-  text-align: center;
-}
+    <!-- publications -->
+    <section id="publications" class="publications">
+        <h1 class="heading">Publications</h1>
 
-.section1 .heading{
-  font-size: 3rem;
-  color: var(--light);
-  margin-bottom: 2rem;
-}
+        <div class="box-container">
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-brain service-icon"></i>
+                <h3>Intelligence Artificielle</h3>
+                <p>Articles sur les dernières avancées en IA, machine learning et leurs applications pratiques dans différents domaines.</p>
+            </div>
+            <!--     end publication -->
 
-/* Section 2 */
-.section2{
-  background: var(--secondary);
-  color: var(--light);
-  padding: 4rem 7%;
-}
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-flask service-icon"></i>
+                <h3>Sciences & Technologie</h3>
+                <p>Recherches et analyses sur les innovations technologiques et leur impact sur la société contemporaine.</p>
+            </div>
+            <!--     end publication -->
 
-.section2 .heading{
-  font-size: 3rem;
-  color: var(--light);
-  margin-bottom: 2rem;
-}
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-book service-icon"></i>
+                <h3>Littérature & Philosophie</h3>
+                <p>Essais et réflexions sur la condition humaine, la créativité et l'intersection entre art et technologie.</p>
+            </div>
+            <!--     end publication -->
 
-/* Section 3 */
-.section3{
-  display: flex;
-  justify-content: space-between;
-  padding: 4rem 7%;
-  background: var(--dark);
-}
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-graduation-cap service-icon"></i>
+                <h3>Recherche Académique</h3>
+                <p>Publications et travaux de recherche dans le cadre universitaire, mémoires et études de cas.</p>
+            </div>
+            <!--     end publication -->
 
-.section3 .contact, .section3 .presentation{
-  flex: 1;
-  margin: 0 1rem;
-}
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-code service-icon"></i>
+                <h3>Développement & Innovation</h3>
+                <p>Guides techniques, tutoriels et retours d'expérience sur les nouvelles technologies et méthodologies.</p>
+            </div>
+            <!--     end publication -->
 
-.section3 .contact h2, .section3 .presentation h2{
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
+            <!--     start publication -->
+            <div class="box">
+                <i class="fas fa-globe service-icon"></i>
+                <h3>Société & Futur</h3>
+                <p>Analyses prospectives sur l'évolution de notre société face aux défis technologiques et environnementaux.</p>
+            </div>
+            <!--     end publication -->
+        </div>
+    </section>
+    <!-- end publications -->
 
-.section3 .presentation img{
-  width: 100%;
-  border-radius: var(--border-radius);
-  margin-bottom: 1rem;
-}
+    <!-- projects section -->
+    <section id="projects" class="projects">
+        <h1 class="heading">Projets Académiques</h1>
 
-/* Section 4 */
-.section4{
-  background: var(--primary);
-  color: var(--light);
-  padding: 4rem 7%;
-}
+        <div class="swiper team-slider">
+            <div class="swiper-wrapper">
+                <!--       start member card -->
+                <div class="swiper-slide slide" onclick="window.location.href='/iliasbenkamoun/'" style="cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                    <!--         image -->
+                    <div class="image">
+                        <img src="./images/ilias.jpeg" alt="Ilias Benkamoun">
+                        <!--         share section -->
+                        <div class="share">
+                            <a href="https://www.linkedin.com/in/iliasbenkamoun/" class="fab fa-linkedin" onclick="event.stopPropagation();"></a>
+                            <a href="#contact" class="fab fa-twitter" onclick="event.stopPropagation();"></a>
+                            <a href="https://github.com/benkamounilias" class="fab fa-github" onclick="event.stopPropagation();"></a>
+                            <a href="mailto:ilias@binetmaroc.me" class="fas fa-envelope" onclick="event.stopPropagation();"></a>
+                        </div>
+                    </div>
 
-.section4 .heading{
-  font-size: 3rem;
-  color: var(--light);
-  margin-bottom: 2rem;
-}
+                    <!--         content of team -->
+                    <div class="content">
+                        <h3>Ilias Benkamoun</h3>
+                        <span>Fondateur & Ingénieur logiciel en formation</span>
+                                                <br>
+                        <h4>Créateur de solutions intelligentes basées sur l’IA</h4>
+                        <h4>Concepteur de solutions intelligentes dédiées aux cabinets médicaux </h4>
+                        <div style="margin-top: 1.5rem; text-align: center;">
+                            <small style="color: var(--primary); font-weight: 600;">
+                                <i class="fas fa-mouse-pointer"></i> Cliquez pour voir mon portfolio complet
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <!--       end member card-->
 
-/* Section 5 */
-.section5{
-  background: var(--secondary);
-  color: var(--light);
-  padding: 4rem 7%;
-}
+            </div>
+        </div>
+    </section>
+    <!-- end projects section -->
 
-.section5 .heading{
-  font-size: 3rem;
-  color: var(--light);
-  margin-bottom: 2rem;
-}
 
-/* Footer */
-.footer{
-  background: var(--dark);
-  color: var(--gray);
-  text-align: center;
-  padding: 2rem 0;
-}
+    <section id="blog" class="blog">
+        <h1 class="heading">Derniers Articles</h1>
 
-.footer p{
-  margin: 0;
-  font-size: 1.4rem;
-}
+        <div class="box-container">
+            <!--     start post  -->
+            <div class="box">
+                <!--       image -->
+                <div class="image">
+                    <img src="./images/analyse.png" alt="Intelligence Artificielle">
+                </div>
+                <!--         blog content -->
+                <div class="content">
+                    <a href="#" class="link">IA & Technologie</a>
+
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"> </i>28 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
+                    </div>
+                    <h3>L'avenir de l'IA conversationnelle</h3>
+                    <p>Réflexions sur l'évolution des modèles de langage et leur impact sur notre façon de communiquer avec les machines...</p>
+                    <a href="" class="btn">lire plus</a>
+                </div>
+                <!--         end content -->
+            </div>
+            <!--     end post -->
+
+            <!--     start post  -->
+            <div class="box">
+                <!--       image -->
+                <div class="image">
+                    <img src="./images/sec.png" alt="Cybersecurité">
+                </div>
+                <!--         blog content -->
+                <div class="content">
+                    <a href="#" class="link">Cybersecurité</a>
+
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"> </i>25 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
+                    </div>
+                    <h3>Éthique et sécurité à l'ère numérique</h3>
+                    <p>Analyse des enjeux éthiques et sécuritaires dans le développement d'applications modernes...</p>
+                    <a href="" class="btn">lire plus</a>
+                </div>
+                <!--         end content -->
+            </div>
+            <!--     end post -->
+
+            <!--     start post  -->
+            <div class="box">
+                <!--       image -->
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" alt="Littérature">
+                </div>
+                <!--         blog content -->
+                <div class="content">
+                    <a href="#" class="link">Littérature</a>
+
+                    <div class="icons">
+                        <a href="#"> <i class="fas fa-calendar"> </i>20 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
+                    </div>
+                    <h3>La poésie à l'ère digitale</h3>
+                    <p>Comment la technologie transforme l'art littéraire et ouvre de nouvelles voies d'expression créative...</p>
+                    <a href="" class="btn">lire plus</a>
+                </div>
+                <!--         end content -->
+            </div>
+            <!--     end post -->
+        </div>
+    </section>
+    <!-- end blog -->
+
+    <!-- contact -->
+    <section id="contact" class="contact">
+        <h1 class="heading">Contactez-moi</h1>
+
+        <form id="contactForm" action="contact.php" method="POST" onsubmit="return handleFormSubmit(this)">
+            <span>votre nom:</span>
+            <div class="input-box">
+                <input type="text" name="prenom" placeholder="prénom" required>
+                <input type="text" name="nom" placeholder="nom" required>
+            </div>
+
+            <span>votre email:</span>
+            <input type="email" name="email" class="box" placeholder="votre adresse email" required>
+
+            <span>sujet:</span>
+            <select name="sujet" class="box" required>
+                <optgroup label="🎨 Collaborations">
+                    <option value="collaboration_recherche">Collaboration de recherche</option>
+                    <option value="projet_commun">Projet commun</option>
+                    <option value="publication_conjointe">Publication conjointe</option>
+                </optgroup>
+                <optgroup label="💼 Opportunités">
+                    <option value="offre_emploi">Offre d'emploi</option>
+                    <option value="stage_these">Stage ou thèse</option>
+                    <option value="conference">Conférence ou événement</option>
+                </optgroup>
+                <optgroup label="📨 Médias & Presse">
+                    <option value="interview">Demande d'interview</option>
+                    <option value="article_invite">Article invité</option>
+                    <option value="podcast">Podcast</option>
+                </optgroup>
+                <optgroup label="💡 Autres">
+                    <option value="question_generale">Question générale</option>
+                    <option value="feedback">Commentaire sur un article</option>
+                    <option value="autre">Autre</option>
+                </optgroup>
+            </select>
+
+            <span>message:</span>
+            <textarea name="message" class="box" placeholder="votre message..." rows="5" required></textarea>
+
+            <input type="submit" class="btn" value="envoyer le message">
+        </form>
+    </section>
+    <!-- contact ends -->
+
+    <!-- footer -->
+    <section class="footer">
+        <div class="box-container">
+            <!--     start column -->
+            <div class="box">
+                <h3>contact</h3>
+                <p>Casablanca, Maroc<br>Chercheur, Développeur & Écrivain</p>
+                <div class="share">
+                    <a href="https://www.linkedin.com/in/iliasbenkamoun/" class="fab fa-linkedin"></a>
+                    <a href="https://github.com/benkamounilias" class="fab fa-github"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="mailto:ilias@binetmaroc.me" class="fas fa-envelope"></a>
+                </div>
+            </div>
+            <!--     end column -->
+
+            <!--     start column -->
+            <div class="box">
+                <h3>navigation</h3>
+                <a href="#portfolio" class="link">Portfolio</a>
+                <a href="#publications" class="link">Publications</a>
+                <a href="#projects" class="link">Projets</a>
+                <a href="#blog" class="link">Articles</a>
+            </div>
+            <!--     end column -->
+
+            <!--     start column -->
+            <div class="box">
+                <h3>domaines d'intérêt</h3>
+                <p>Intelligence Artificielle<br>
+                   Développement Web<br>
+                   Sciences & Technologie<br>
+                   Littérature & Philosophie
+                </p>
+            </div>
+            <!--     end column -->   
+        </div>
+
+        <div class="credit">
+            <span>Ilias Benkamoun</span> | Portfolio & Magazine Personnel &copy;2025
+        </div>
+    </section>
+    <!-- end footer -->
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
