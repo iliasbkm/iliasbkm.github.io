@@ -35,7 +35,7 @@ html {
 }
 
 body {
-  background: var(--bg-dark);
+  background-color: #4B0082; /* Dark purple instead of black */
   color: var(--text-white);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 1.6rem;
@@ -58,6 +58,7 @@ body {
 }
 
 .header .logo {
+  background-image: url('../images/new-logo.png'); /* Update with the new logo path */
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-white);
