@@ -1,25 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+
+
+/* Variables */
 :root {
-  /* Backgrounds */
-  --bg-dark: #f4f7fa;        /* Gris très clair moderne (quasi-white) */
-  --bg-secondary: #e8eef3;   /* Gris bleuté doux pour sections */
-  --bg-card: #ffffff;        /* Pur white pour cartes & articles */
-
-  /* Text */
-  --primary: #1b263b;        /* Bleu acier — lisible, moderne */
-  --text-gray: #5c6b7a;      /* Gris bleuté pour textes secondaires */
-
-  /* Accents (scientifique / technologique) */
-  --accent: #008cba;         /* Bleu cyan moderne */
-  --accent-hover: #0077a3;   /* Plus sombre pour hover */
+  /* Couleurs principales - thème scientifique élégant */
+  --bg-dark: #0a1929; /* Bleu marine profond - fond principal */
+  --bg-secondary: #1a2942; /* Bleu ardoise - sections secondaires */
+  --bg-card: #ffffff; /* Blanc pur - cartes/articles */
   
-  /* Hover & borders */
-  --primary-hover: #0d1b2a;  /* Bleu nuit léger pour interactions */
-  --border-color: #d0d7de;   /* Gris clair moderne (style GitHub) */
-
-
-
+  /* Accents scientifiques */
+  --primary: #0277bd; /* Bleu science vif - liens et CTA */
+  --primary-hover: #01579b; /* Bleu plus foncé au survol */
+  --accent: #00acc1; /* Cyan - éléments interactifs */
+  
+  /* Texte */
+  --text-primary: #1a1a1a; /* Noir doux - texte principal */
+  --text-secondary: #546e7a; /* Gris bleuté - texte secondaire */
+  --text-on-dark: #eceff1; /* Blanc cassé - texte sur fond sombre */
+  
+  /* Bordures et séparateurs */
+  --border-color: #e0e0e0; /* Gris clair - bordures subtiles */
+  --divider: #cfd8dc; /* Gris bleu clair - séparateurs */
+  
+  /* États et feedback */
+  --success: #2e7d32; /* Vert - succès */
+  --warning: #f57c00; /* Orange - attention */
+  --error: #c62828; /* Rouge - erreur */
+  
+  /* Ombres pour profondeur */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+}
 
 * {
   margin: 0;
@@ -33,7 +46,7 @@ html {
 }
 
 body {
-  background-color: auto; /* Dark purple instead of black */
+  background-color: #4B0082; /* Dark purple instead of black */
   color: var(--text-white);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 1.6rem;
