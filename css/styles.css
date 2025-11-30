@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
+/* Modernized Dark Theme */
+:root {
+  --bg-dark: #4b2c6f; /* Dark Purple */
+  --bg-secondary: #5a3e8d; /* Lighter Purple */
+  --bg-card: #6f4b8d; /* Card Background */
+  --primary: #ffffff; /* White for text */
+  --primary-hover: #e0e0e0; /* Light Gray for hover */
+  --text-gray: #d0d0d0; /* Light Gray for text */
+  --border-color: #3a3a3a; /* Darker border color */
+}
+
 /* Variables */
 :root {
   --bg-dark: #0a0a0a;
@@ -64,7 +75,7 @@ body {
 }
 
 .header .navbar a:hover {
-  color: var(--text-white);
+  color: var(--primary);
 }
 
 /* Home Section */
