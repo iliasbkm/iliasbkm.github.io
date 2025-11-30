@@ -234,6 +234,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
 console.log('Binet - Site web chargé avec succès ! 🚀');
 
+// === CAROUSEL SECTION 1 ===
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    if (!slides.length) return;
+    
+    // Reset all slides
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        slide.style.display = 'none';
+    });
+    
+    // Reset all dots
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Handle wrapping
+    if (index >= slides.length) {
+        currentSlideIndex = 0;
+    } else if (index < 0) {
+        currentSlideIndex = slides.length - 1;
+    } else {
+        currentSlideIndex = index;
+    }
+    
+    // Show current slide
+    slides[currentSlideIndex].classList.add('active');
+    slides[currentSlideIndex].style.display = 'block';
+    
+    if (dots[currentSlideIndex]) {
+        dots[currentSlideIndex].classList.add('active');
+    }
+}
+
+function moveCarousel(direction) {
+    showSlide(currentSlideIndex + direction);
+}
+
+function currentSlide(index) {
+    showSlide(index);
+}
+
+// Auto-advance carousel every 5 seconds
+setInterval(() => {
+    moveCarousel(1);
+}, 5000);
+
+// Initialize carousel
+document.addEventListener('DOMContentLoaded', () => {
+    if (slides.length > 0) {
+        showSlide(0);
+    }
+});
+
+// === END CAROUSEL ===
+
 // Debug - Vérification des éléments
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM chargé');
