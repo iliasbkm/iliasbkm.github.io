@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binet - Applications Médicales Innovantes</title>
+    <title>Ilias Benkamoun - Portfolio & Magazine Scientifique</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -25,15 +25,14 @@
         <nav class="navbar">
             <a href="#home">accueil</a>
             <a href="#about">à propos</a>
-            <a href="#nafas">nafas+</a>
-            <a href="#services">services</a>
-            <a href="#team">qui suis-je</a>
-            <a href="#pricing">tarifs</a>
-            <a href="#blog">actualités</a>
-
+            <a href="#portfolio">portfolio</a>
+            <a href="#publications">publications</a>
+            <a href="#projects">projets</a>
+            <a href="#blog">articles</a>
+            <a href="#contact">contact</a>
         </nav>
         <!--   end navbar -->
-        <a href="#contact" class="btn">Je veux digitaliser mon cabinet</a>
+        <a href="#contact" class="btn">Collaborons ensemble</a>
         <div id="menu-btn" class="fas fa-bars"></div>
     </header>
     <!-- end header -->
@@ -41,157 +40,142 @@
     <!-- start home -->
     <section id="home" class="home">
         <div class="content">
-            <h3>innovez votre pratique médicale</h3>
-            <p>Binet développe des applications sur-mesure pour moderniser votre cabinet médical. Solutions sécurisées, données locales, interface intuitive.</p>
-            <a href="#contact" class="btn">Profiter de notre service</a>
+            <h3>Explorer • Créer • Innover</h3>
+            <p>Bienvenue dans mon univers où la science, la technologie et la créativité se rencontrent. Découvrez mes recherches, projets et réflexions sur l'innovation technologique.</p>
+            <a href="#portfolio" class="btn">Découvrir mon travail</a>
         </div>
-      <!--  <div class="doctor-image">
-            <img src="./medecin.png" alt="Médecin professionnel">
-        </div>-->
     </section>
     <!-- end home -->
 
     <!-- about -->
     <section id="about" class="about">
-        <h1 class="heading">à propos de nous</h1>
+        <h1 class="heading">à propos</h1>
 
         <!--   content -->
         <div class="row">
             <!--     image -->
             <div class="image">
-                <img src="/images/dev.png" alt="équipement médical moderne">
+                <img src="./images/ilias.jpeg" alt="Ilias Benkamoun">
             </div>
 
             <!--     info -->
             <div class="content">
-                <h3>notre expertise technique au service de votre excellence médicale</h3>
-                <p>Binet se spécialise dans le développement d'applications médicales sur-mesure pour les professionnels de santé au Maroc. Nous comprenons les défis uniques de votre pratique.</p>
-                <p>Nos solutions intègrent les dernières technologies tout en respectant la confidentialité des données patients et les réglementations en vigueur.</p>
-                <a href="#services" class="btn">découvrir nos services</a>
+                <h3>Chercheur, Développeur & Penseur</h3>
+                <p>Passionné par l'intersection entre technologie et société, je consacre mon temps à explorer comment l'innovation peut transformer notre quotidien. Mes recherches couvrent l'intelligence artificielle, le développement logiciel et les sciences sociales.</p>
+                <p>À travers ce magazine personnel, je partage mes découvertes, mes projets et mes réflexions sur les enjeux contemporains de la technologie et de l'innovation.</p>
+                <a href="#portfolio" class="btn">voir mon portfolio</a>
             </div>
         </div>
     </section>
     <!-- end about -->
 
-    <!-- nafas+ section -->
-    <section id="nafas" class="nafas">
-        <div class="content-wrapper">
-            <div class="nafas-header">
-                <img src="./images/nafas+.png" alt="Nafas+" class="nafas-logo">
-                <h2 class="nafas-title">Respirez la technologie avec Nafas+</h2>
-                <p class="nafas-subtitle">La révolution de la santé respiratoire au bout des doigts</p>
-            </div>
+    <!-- portfolio section -->
+    <section id="portfolio" class="portfolio">
+        <h1 class="heading">Portfolio</h1>
+        
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="web">Développement Web</button>
+            <button class="filter-btn" data-filter="ai">Intelligence Artificielle</button>
+            <button class="filter-btn" data-filter="research">Recherche</button>
+        </div>
 
-            <div class="nafas-content">
-                <div class="nafas-description">
-                    <h3>Découvrez Nafas+ - Votre compagnon santé intelligent</h3>
-                    <p>Nafas+ est bien plus qu'une simple application : c'est votre partenaire de santé respiratoire personnalisé, développé avec les dernières technologies d'intelligence artificielle.</p>
-                    
-                    <div class="nafas-features">
-                        <div class="feature">
-                            <i class="fas fa-lungs"></i>
-                            <div>
-                                <h4>Surveillance respiratoire 24/7</h4>
-                                <p>Suivez votre santé respiratoire en temps réel</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-robot"></i>
-                            <div>
-                                <h4>Intelligence artificielle avancée</h4>
-                                <p>Analyse prédictive et recommandations personnalisées</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <h4>Application mobile intuitive</h4>
-                                <p>Interface simple et accessible à tous</p>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <h4>Rapports détaillés</h4>
-                                <p>Visualisez votre évolution avec des graphiques clairs</p>
-                            </div>
-                        </div>
+        <div class="portfolio-container">
+            <div class="portfolio-item" data-category="ai">
+                <div class="portfolio-image">
+                    <img src="./images/nafas+.png" alt="Nafas+ Project">
+                    <div class="portfolio-overlay">
+                        <h3>Nafas+</h3>
+                        <p>Application de santé respiratoire avec IA</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
-
-                <div class="nafas-cta">
-                    <div class="cta-box">
-                        <h3>Projet en développement</h3>
-                        <p>Nafas+ transforme la gestion de la santé respiratoire grâce à l'intelligence artificielle.</p>
-                        <div class="cta-buttons">
-                            <a href="#contact" class="btn btn-primary">Contactez-nous</a>
-                        </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="web">
+                <div class="portfolio-image">
+                    <img src="./images/binet-logo sc.png" alt="Plateforme Binet">
+                    <div class="portfolio-overlay">
+                        <h3>Plateforme Binet</h3>
+                        <p>Solutions digitales pour cabinets médicaux</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-item" data-category="research">
+                <div class="portfolio-image">
+                    <img src="./images/analyse.png" alt="Analyse de données">
+                    <div class="portfolio-overlay">
+                        <h3>Analyse Prédictive</h3>
+                        <p>Recherche en sciences des données</p>
+                        <a href="#" class="portfolio-link"><i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- end nafas+ section -->
+    <!-- end portfolio section -->
 
-    <!-- services -->
-    <section id="services" class="services">
-        <h1 class="heading">nos services</h1>
+    <!-- publications -->
+    <section id="publications" class="publications">
+        <h1 class="heading">Publications</h1>
 
         <div class="box-container">
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-calendar-check service-icon"></i>
-                <h3>gestion des rendez-vous</h3>
-                <p>Système intelligent de planification et de gestion des rendez-vous avec notifications automatiques.</p>
+                <i class="fas fa-brain service-icon"></i>
+                <h3>Intelligence Artificielle</h3>
+                <p>Articles sur les dernières avancées en IA, machine learning et leurs applications pratiques dans différents domaines.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
 
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-folder service-icon"></i>
-                <h3>dossiers patients</h3>
-                <p>Gestion sécurisée et complète des dossiers médicaux électroniques avec historique détaillé.</p>
+                <i class="fas fa-flask service-icon"></i>
+                <h3>Sciences & Technologie</h3>
+                <p>Recherches et analyses sur les innovations technologiques et leur impact sur la société contemporaine.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
 
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-mobile-alt service-icon"></i>
-                <h3>applications mobiles</h3>
-                <p>Applications mobiles personnalisées pour améliorer l'expérience patient et faciliter le suivi.</p>
+                <i class="fas fa-book service-icon"></i>
+                <h3>Littérature & Philosophie</h3>
+                <p>Essais et réflexions sur la condition humaine, la créativité et l'intersection entre art et technologie.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
 
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-chart-line service-icon"></i>
-                <h3>analyses & rapports</h3>
-                <p>Tableaux de bord analytiques pour optimiser les performances de votre cabinet médical.</p>
+                <i class="fas fa-graduation-cap service-icon"></i>
+                <h3>Recherche Académique</h3>
+                <p>Publications et travaux de recherche dans le cadre universitaire, mémoires et études de cas.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
 
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-shield-alt service-icon"></i>
-                <h3>sécurité des données</h3>
-                <p>Protection maximale des données sensibles avec cryptage avancé et conformité RGPD.</p>
+                <i class="fas fa-code service-icon"></i>
+                <h3>Développement & Innovation</h3>
+                <p>Guides techniques, tutoriels et retours d'expérience sur les nouvelles technologies et méthodologies.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
 
-            <!--     start field -->
+            <!--     start publication -->
             <div class="box">
-                <i class="fas fa-headset service-icon"></i>
-                <h3>support technique</h3>
-                <p>Assistance technique dédiée 7j/7 pour garantir le fonctionnement optimal de vos applications.</p>
+                <i class="fas fa-globe service-icon"></i>
+                <h3>Société & Futur</h3>
+                <p>Analyses prospectives sur l'évolution de notre société face aux défis technologiques et environnementaux.</p>
             </div>
-            <!--     end field -->
+            <!--     end publication -->
         </div>
     </section>
-    <!-- end services -->
+    <!-- end publications -->
 
-    <!-- team section -->
-    <section id="team" class="team">
-        <h1 class="heading">Mon Profile</h1>
+    <!-- projects section -->
+    <section id="projects" class="projects">
+        <h1 class="heading">Projets Académiques</h1>
 
         <div class="swiper team-slider">
             <div class="swiper-wrapper">
@@ -228,79 +212,29 @@
             </div>
         </div>
     </section>
-    <!-- end team section -->
+    <!-- end projects section -->
 
-   <section id="pricing" class="pricing">
-    <h1 class="heading">nos forfaits</h1>
 
-    <div class="box-container">
-        <!-- start card -->
-        <div class="box">
-            <h3 class="title">Essentiel</h3>
-            <div class="price">
-                <span class="amount">199</span>
-                <span class="currency">MAD</span>
-                <span class="duration"> /mois</span>
-            </div>
-            <ul>
-                <li><i class="fas fa-check"></i> bot de réservation par WhatsApp</li>
-                <li><i class="fas fa-check"></i> rappels automatiques</li>
-                <li><i class="fas fa-check"></i> agenda</li>
-                <li><i class="fas fa-check"></i> application de gestion gratuite</li>
-            </ul>
-            <a href="#contact" class="btn">choisir ce plan</a>
-        </div>
-        <!-- end card -->
-
-        <!-- start card -->
-        <div class="box active">
-            <h3 class="title">Professionnel</h3>
-            <div class="price">
-                <span class="amount">250</span>
-                <span class="currency">MAD</span>
-                <span class="duration"> /mois</span>
-            </div>
-            <ul>
-                <li><i class="fas fa-check"></i> bot de réservation par WhatsApp</li>
-                <li><i class="fas fa-check"></i> rappels automatiques</li>
-                <li><i class="fas fa-check"></i> agenda</li>
-                <li><i class="fas fa-check"></i> application de gestion gratuite</li>
-                <li><i class="fas fa-check"></i> statistiques détaillées</li>
-                <li><i class="fas fa-check"></i> maintenance 1 fois par mois</li>
-                <li><i class="fas fa-check"></i> mise à jour chaque 3 mois</li>
-            </ul>
-            <a href="#contact" class="btn">choisir ce plan</a>
-        </div>
-        <!-- end card -->
-    </div>
-
-    <div class="setup-info">
-        <p><strong>Frais de paramétrage :</strong> 199 MAD (services, horaires, templates WhatsApp)</p>
-        <p><strong>Maintenance :</strong> 100 MAD/mois</p>
-    </div>
-</section>
-
-    <!-- blog -->
     <section id="blog" class="blog">
-        <h1 class="heading">nos actualités</h1>
+        <h1 class="heading">Derniers Articles</h1>
 
         <div class="box-container">
             <!--     start post  -->
             <div class="box">
                 <!--       image -->
                 <div class="image">
-                    <img src="./images/analyse.png" alt="innovation médicale">
+                    <img src="./images/analyse.png" alt="Intelligence Artificielle">
                 </div>
                 <!--         blog content -->
                 <div class="content">
-                    <a href="#" class="link">Innovation</a>
+                    <a href="#" class="link">IA & Technologie</a>
 
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-calendar"> </i>15 Décembre, 2024</a>
-                        <a href="#"><i class="fas fa-user"></i>par Youssef</a>
+                        <a href="#"> <i class="fas fa-calendar"> </i>28 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
                     </div>
-                    <h3>L'avenir de la télémédecine au Maroc</h3>
-                    <p>Découvrez comment les nouvelles technologies transforment la pratique médicale et améliorent l'accès aux soins...</p>
+                    <h3>L'avenir de l'IA conversationnelle</h3>
+                    <p>Réflexions sur l'évolution des modèles de langage et leur impact sur notre façon de communiquer avec les machines...</p>
                     <a href="" class="btn">lire plus</a>
                 </div>
                 <!--         end content -->
@@ -311,18 +245,18 @@
             <div class="box">
                 <!--       image -->
                 <div class="image">
-                    <img src="./images/sec.png" alt="sécurité données">
+                    <img src="./images/sec.png" alt="Cybersecurité">
                 </div>
                 <!--         blog content -->
                 <div class="content">
-                    <a href="#" class="link">Sécurité</a>
+                    <a href="#" class="link">Cybersecurité</a>
 
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-calendar"> </i>10 Décembre, 2024</a>
-                        <a href="#"><i class="fas fa-user"></i>par Omar</a>
+                        <a href="#"> <i class="fas fa-calendar"> </i>25 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
                     </div>
-                    <h3>Protéger les données de vos patients</h3>
-                    <p>Les meilleures pratiques pour assurer la sécurité et la confidentialité des informations médicales sensibles...</p>
+                    <h3>Éthique et sécurité à l'ère numérique</h3>
+                    <p>Analyse des enjeux éthiques et sécuritaires dans le développement d'applications modernes...</p>
                     <a href="" class="btn">lire plus</a>
                 </div>
                 <!--         end content -->
@@ -333,18 +267,18 @@
             <div class="box">
                 <!--       image -->
                 <div class="image">
-                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="digitalisation cabinet">
+                    <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg" alt="Littérature">
                 </div>
                 <!--         blog content -->
                 <div class="content">
-                    <a href="#" class="link">Digitalisation</a>
+                    <a href="#" class="link">Littérature</a>
 
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-calendar"> </i>05 Décembre, 2024</a>
-                        <a href="#"><i class="fas fa-user"></i>par Fatima</a>
+                        <a href="#"> <i class="fas fa-calendar"> </i>20 Novembre, 2025</a>
+                        <a href="#"><i class="fas fa-user"></i>par Ilias</a>
                     </div>
-                    <h3>Digitaliser votre cabinet médical</h3>
-                    <p>Guide complet pour moderniser votre pratique médicale avec les outils numériques adaptés à vos besoins...</p>
+                    <h3>La poésie à l'ère digitale</h3>
+                    <p>Comment la technologie transforme l'art littéraire et ouvre de nouvelles voies d'expression créative...</p>
                     <a href="" class="btn">lire plus</a>
                 </div>
                 <!--         end content -->
@@ -356,7 +290,7 @@
 
     <!-- contact -->
     <section id="contact" class="contact">
-        <h1 class="heading">Contactez-nous</h1>
+        <h1 class="heading">Contactez-moi</h1>
 
         <form id="contactForm" action="contact.php" method="POST" onsubmit="return handleFormSubmit(this)">
             <span>votre nom:</span>
@@ -368,45 +302,34 @@
             <span>votre email:</span>
             <input type="email" name="email" class="box" placeholder="votre adresse email" required>
 
-            <span>votre téléphone:</span>
-            <input type="tel" name="telephone" class="box" placeholder="votre numéro de téléphone" required>
-
-            <span>type de projet:</span>
-            <select name="type_projet" class="box" required>
-                 <optgroup label="📅 Gestion des rendez-vous">
-                    <option value="rdv_simple">Planning de rendez-vous simple</option>
-                    <option value="rdv_avance">Système de réservation en ligne</option>
-                    <option value="rdv_rappels">Avec rappels automatiques SMS/Email</option>
+            <span>sujet:</span>
+            <select name="sujet" class="box" required>
+                <optgroup label="🎨 Collaborations">
+                    <option value="collaboration_recherche">Collaboration de recherche</option>
+                    <option value="projet_commun">Projet commun</option>
+                    <option value="publication_conjointe">Publication conjointe</option>
                 </optgroup>
-                <optgroup label="📋 Dossiers et données">
-                    <option value="dossiers_basic">Dossiers patients électroniques</option>
-                    <option value="dossiers_complet">Gestion complète avec historique</option>
-                    <option value="facturation">Facturation et comptabilité</option>
+                <optgroup label="💼 Opportunités">
+                    <option value="offre_emploi">Offre d'emploi</option>
+                    <option value="stage_these">Stage ou thèse</option>
+                    <option value="conference">Conférence ou événement</option>
                 </optgroup>
-                <optgroup label="📱 Applications mobiles">
-                    <option value="app_patients">App pour vos patients</option>
-                    <option value="app_medecin">App pour votre cabinet</option>
-                    <option value="telemedicine">Téléconsultation</option>
+                <optgroup label="📨 Médias & Presse">
+                    <option value="interview">Demande d'interview</option>
+                    <option value="article_invite">Article invité</option>
+                    <option value="podcast">Podcast</option>
                 </optgroup>
-                <optgroup label="🔧 Solutions spécialisées">
-                    <option value="laboratoire">Gestion de laboratoire</option>
-                    <option value="pharmacie">Interface pharmacie</option>
-                    <option value="imagerie">Gestion d'imagerie médicale</option>
-                </optgroup>
-                <optgroup label="💼 Services">
-                    <option value="consultation">Consultation personnalisée</option>
-                    <option value="formation">Formation équipe</option>
-                    <option value="maintenance">Maintenance et support</option>
+                <optgroup label="💡 Autres">
+                    <option value="question_generale">Question générale</option>
+                    <option value="feedback">Commentaire sur un article</option>
+                    <option value="autre">Autre</option>
                 </optgroup>
             </select>
 
-            <span>date souhaitée:</span>
-            <input type="datetime-local" name="date_souhaitee" class="box" required>
+            <span>message:</span>
+            <textarea name="message" class="box" placeholder="votre message..." rows="5" required></textarea>
 
-            <span>message (optionnel):</span>
-            <textarea name="message" class="box" placeholder="décrivez votre projet..." rows="5"></textarea>
-
-            <input type="submit" class="btn" value="envoyer la demande">
+            <input type="submit" class="btn" value="envoyer le message">
         </form>
     </section>
     <!-- contact ends -->
@@ -416,37 +339,41 @@
         <div class="box-container">
             <!--     start column -->
             <div class="box">
-                <h3>adresse</h3>
-                <p>Casablanca, Maroc<br>Spécialistes en applications médicales sur-mesure</p>
+                <h3>contact</h3>
+                <p>Casablanca, Maroc<br>Chercheur, Développeur & Écrivain</p>
                 <div class="share">
-                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="https://www.linkedin.com/in/iliasbenkamoun/" class="fab fa-linkedin"></a>
+                    <a href="https://github.com/benkamounilias" class="fab fa-github"></a>
                     <a href="#" class="fab fa-twitter"></a>
-                    <a href="#" class="fab fa-linkedin"></a>
-                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="mailto:ilias@binetmaroc.me" class="fas fa-envelope"></a>
                 </div>
             </div>
             <!--     end column -->
 
             <!--     start column -->
             <div class="box">
-                <h3>contact</h3>
-                <a href="mailto:support@binetmaroc.me" class="link">support@binetmaroc.me</a>
-                <a href="tel:+212600000000" class="link">+212 771 551 866</a>
+                <h3>navigation</h3>
+                <a href="#portfolio" class="link">Portfolio</a>
+                <a href="#publications" class="link">Publications</a>
+                <a href="#projects" class="link">Projets</a>
+                <a href="#blog" class="link">Articles</a>
             </div>
             <!--     end column -->
 
             <!--     start column -->
             <div class="box">
-                <h3>horaires</h3>
-                <p>lundi-samedi : 09:00 - 18:00<br>
-                   support 24/7 disponible
+                <h3>domaines d'intérêt</h3>
+                <p>Intelligence Artificielle<br>
+                   Développement Web<br>
+                   Sciences & Technologie<br>
+                   Littérature & Philosophie
                 </p>
             </div>
             <!--     end column -->   
         </div>
 
         <div class="credit">
-            <span>Binet maroc</span> | tous droits réservés &copy;2025
+            <span>Ilias Benkamoun</span> | Portfolio & Magazine Personnel &copy;2025
         </div>
     </section>
     <!-- end footer -->
