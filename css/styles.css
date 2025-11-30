@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Modernized Dark Theme */
 :root {
   /* Backgrounds */
-  --bg-dark: #0d1b2a;        /* Bleu nuit - sérieux scientifique */
-  --bg-secondary: #1b263b;   /* Bleu profond légèrement plus clair */
-  --bg-card: #415a77;        /* Bleu gris pour les cartes */
+  --bg-dark: #f4f7fa;        /* Gris très clair moderne (quasi-white) */
+  --bg-secondary: #e8eef3;   /* Gris bleuté doux pour sections */
+  --bg-card: #ffffff;        /* Pur white pour cartes & articles */
 
-  /* Text colors */
-  --primary: #e0e5eb;        /* Blanc/gris très clair pour la lisibilité */
-  --text-gray: #c6d0da;      /* Gris bleuté doux */
+  /* Text */
+  --primary: #1b263b;        /* Bleu acier — lisible, moderne */
+  --text-gray: #5c6b7a;      /* Gris bleuté pour textes secondaires */
 
-  /* Accent colors */
-  --accent: #00b4d8;         /* Cyan scientifique / technologique */
-  --accent-hover: #0096c7;   /* Cyan plus sombre pour le hover */
-
+  /* Accents (scientifique / technologique) */
+  --accent: #008cba;         /* Bleu cyan moderne */
+  --accent-hover: #0077a3;   /* Plus sombre pour hover */
+  
   /* Hover & borders */
-  --primary-hover: #f1f5f9;  /* Blanc légèrement bleuté */
-  --border-color: #2c3e50;   /* Bleu/gris neutre pour les bordures */
-}
+  --primary-hover: #0d1b2a;  /* Bleu nuit léger pour interactions */
+  --border-color: #d0d7de;   /* Gris clair moderne (style GitHub) */
+
 
 
 
