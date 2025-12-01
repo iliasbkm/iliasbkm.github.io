@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFormHandling();
     initializeSmoothScrolling();
     initializeLoadingAnimations();
+    initializeCarousel();
 });
 
 // Navigation functionality
@@ -177,7 +178,9 @@ function initializeVideoCards() {
 // Form handling
 function initializeFormHandling() {
     const newsletterForm = document.querySelector('.newsletter-form');
+    const contactForm = document.querySelector('.contact-form');
     
+    // Newsletter form
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -204,6 +207,115 @@ function initializeFormHandling() {
             
             console.log('Newsletter subscription for:', email);
         });
+    }
+    
+    // Contact form
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const button = this.querySelector('.submit-btn');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Envoi en cours...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Message envoyé ✓';
+                button.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+            
+            console.log('Contact form submitted');
+        });
+    }
+}
+
+// Carousel functionality
+let currentSlide = 0;
+
+function moveCarousel(direction) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (slides.length === 0) return;
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Calculate next slide
+    currentSlide += direction;
+    
+    // Wrap around
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    
+    // Add active class to current slide and dot
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    
+    // Update carousel position
+    updateCarouselPosition();
+}
+
+function currentSlide(n) {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (slides.length === 0) return;
+    
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Set current slide
+    currentSlide = n;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    
+    // Add active class to current slide and dot
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+    
+    // Update carousel position
+    updateCarouselPosition();
+}
+
+function updateCarouselPosition() {
+    const slidesContainer = document.querySelector('.carousel-slides');
+    if (slidesContainer) {
+        slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+}
+
+// Initialize carousel
+function initializeCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (slides.length > 0) {
+        // Set first slide and dot as active
+        slides[0].classList.add('active');
+        if (dots.length > 0) {
+            dots[0].classList.add('active');
+        }
+        
+        // Auto-rotate carousel every 8 seconds
+        setInterval(() => {
+            moveCarousel(1);
+        }, 8000);
     }
 }
 
