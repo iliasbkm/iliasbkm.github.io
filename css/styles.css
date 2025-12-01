@@ -352,7 +352,7 @@ section {
 .article-tag {
     display: inline-block;
     padding: var(--spacing-xs) var(--spacing-md);
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
     color: white;
     font-size: 0.875rem;
     font-weight: 600;
@@ -392,27 +392,15 @@ section {
     gap: var(--spacing-xxl);
     margin-bottom: var(--spacing-xxl);
     padding: var(--spacing-xxl);
-    background: var(--bg-section);
-    border: 3px solid transparent;
-    background-clip: padding-box;
+    background-color: var(--bg-light);
+    border: 3px solid var(--accent-color);
     position: relative;
-}
-
-.featured-article::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary), var(--accent-tertiary));
-    z-index: -1;
 }
 
 .featured-tag {
     display: inline-block;
     padding: var(--spacing-sm) var(--spacing-lg);
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-tertiary) 100%);
+    background-color: var(--accent-tertiary);
     color: white;
     font-size: 0.875rem;
     font-weight: 700;
@@ -446,7 +434,7 @@ section {
 .read-more-btn {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
-    background: linear-gradient(45deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+    background-color: var(--accent-color);
     color: white;
     font-weight: 600;
     transition: var(--transition);
@@ -465,7 +453,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--primary-color) 0%, var(--accent-tertiary) 100%);
+    background-color: var(--primary-color);
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -491,7 +479,7 @@ section {
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(52, 152, 219, 0.05) 100%);
+    background-color: var(--bg-color);
     transition: var(--transition);
     position: relative;
 }
@@ -503,7 +491,7 @@ section {
     left: 0;
     width: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-tertiary));
+    background-color: var(--accent-secondary);
     transition: width 0.3s ease;
 }
 
@@ -533,7 +521,7 @@ section {
 
 /* Section À Propos et Contact */
 .about-contact {
-    background: var(--bg-section);
+    background-color: var(--bg-section);
 }
 
 .about-grid {
@@ -557,7 +545,7 @@ section {
     left: 0;
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
 }
 
 .contact-info {
@@ -571,7 +559,7 @@ section {
     align-items: center;
     gap: var(--spacing-lg);
     padding: var(--spacing-lg);
-    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(102, 126, 234, 0.05) 100%);
+    background-color: var(--bg-color);
     border-left: 4px solid var(--accent-color);
     border-right: 1px solid var(--border-color);
     border-top: 1px solid var(--border-color);
@@ -587,7 +575,7 @@ section {
     left: 0;
     width: 4px;
     height: 0;
-    background: linear-gradient(180deg, var(--accent-secondary), var(--accent-tertiary));
+    background-color: var(--accent-secondary);
     transition: height 0.3s ease;
 }
 
@@ -647,7 +635,7 @@ section {
     transform: translateX(-50%);
     width: 150px;
     height: 150px;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-secondary);
     z-index: 1;
 }
 
@@ -679,7 +667,7 @@ section {
 
 .expertise-tag {
     padding: var(--spacing-sm) var(--spacing-md);
-    background: linear-gradient(45deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1));
+    background-color: rgba(231, 76, 60, 0.1);
     color: var(--primary-color);
     font-size: 0.875rem;
     font-weight: 600;
@@ -696,7 +684,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -712,7 +700,7 @@ section {
 
 /* Section Projets */
 .academic-projects {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%);
+    background-color: var(--bg-light);
 }
 
 .projects-grid {
@@ -724,7 +712,7 @@ section {
 .project-card {
     padding: var(--spacing-xl);
     border: 2px solid var(--border-color);
-    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(102, 126, 234, 0.02) 100%);
+    background-color: var(--bg-color);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -737,7 +725,7 @@ section {
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary), var(--accent-tertiary));
+    background-color: var(--accent-color);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -750,7 +738,7 @@ section {
     right: 0;
     width: 4px;
     height: 0;
-    background: linear-gradient(180deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-secondary);
     transition: height 0.3s ease 0.1s;
 }
 
@@ -770,7 +758,7 @@ section {
 .project-icon {
     width: 70px;
     height: 70px;
-    background: linear-gradient(45deg, var(--accent-color) 0%, var(--accent-secondary) 100%);
+    background-color: var(--accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -806,11 +794,11 @@ section {
 
 .tech-tag {
     padding: var(--spacing-xs) var(--spacing-sm);
-    background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+    background-color: rgba(52, 152, 219, 0.1);
     color: var(--primary-color);
     font-size: 0.75rem;
     font-weight: 600;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-secondary);
     text-transform: uppercase;
     letter-spacing: 0.3px;
 }
@@ -828,23 +816,23 @@ section {
 }
 
 .project-status.ongoing {
-    background: linear-gradient(45deg, #ffc107, #ff8f00);
+    background-color: #ffc107;
     color: #5d4037;
 }
 
 .project-status.completed {
-    background: linear-gradient(45deg, #28a745, #20c997);
+    background-color: var(--accent-tertiary);
     color: white;
 }
 
 .project-status.planning {
-    background: linear-gradient(45deg, #dc3545, #e83e8c);
+    background-color: var(--accent-color);
     color: white;
 }
 
 /* Section Vidéos */
 .youtube-videos {
-    background: var(--bg-section);
+    background-color: var(--bg-section);
 }
 
 .videos-grid {
@@ -855,7 +843,7 @@ section {
 }
 
 .video-card {
-    background: linear-gradient(135deg, var(--bg-color) 0%, rgba(231, 76, 60, 0.02) 100%);
+    background-color: var(--bg-color);
     border: 2px solid var(--border-color);
     overflow: hidden;
     transition: var(--transition);
@@ -870,7 +858,7 @@ section {
     left: 0;
     width: 0;
     height: 100%;
-    background: linear-gradient(90deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1));
+    background-color: rgba(231, 76, 60, 0.1);
     transition: width 0.4s ease;
     z-index: 1;
 }
@@ -908,7 +896,7 @@ section {
     transform: translate(-50%, -50%);
     width: 70px;
     height: 70px;
-    background: linear-gradient(45deg, rgba(231, 76, 60, 0.9), rgba(243, 156, 18, 0.9));
+    background-color: rgba(231, 76, 60, 0.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -921,14 +909,14 @@ section {
 
 .video-card:hover .play-button {
     transform: translate(-50%, -50%) scale(1.2);
-    background: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .video-duration {
     position: absolute;
     bottom: var(--spacing-sm);
     right: var(--spacing-sm);
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(44, 62, 80, 0.8));
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 0.75rem;
@@ -982,7 +970,7 @@ section {
     align-items: center;
     gap: var(--spacing-md);
     padding: var(--spacing-lg) var(--spacing-xxl);
-    background: linear-gradient(45deg, #ff0000, #cc0000);
+    background-color: #ff0000;
     color: white;
     font-weight: 700;
     transition: var(--transition);
@@ -1000,7 +988,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #990000, #ff3333);
+    background-color: #cc0000;
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -1020,28 +1008,11 @@ section {
 
 /* Footer */
 .footer {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background-color: var(--primary-color);
     color: white;
     padding: var(--spacing-xxl) 0 var(--spacing-lg);
     position: relative;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary), var(--accent-tertiary), var(--accent-color));
-    background-size: 200% 100%;
-    animation: gradientMove 3s ease infinite;
-}
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    border-top: 4px solid var(--accent-color);
 }
 
 .footer-content {
@@ -1118,7 +1089,7 @@ section {
     justify-content: center;
     width: 45px;
     height: 45px;
-    background: linear-gradient(45deg, var(--secondary-color), rgba(52, 152, 219, 0.3));
+    background-color: var(--secondary-color);
     color: white;
     transition: var(--transition);
     position: relative;
@@ -1132,7 +1103,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -1155,7 +1126,7 @@ section {
     flex: 1;
     padding: var(--spacing-md);
     border: 2px solid var(--secondary-color);
-    background: linear-gradient(135deg, var(--secondary-color), rgba(44, 62, 80, 0.8));
+    background-color: var(--secondary-color);
     color: white;
     font-size: 0.875rem;
     transition: var(--transition);
@@ -1172,7 +1143,7 @@ section {
 
 .newsletter-form button {
     padding: var(--spacing-md) var(--spacing-lg);
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
     color: white;
     border: none;
     font-weight: 600;
@@ -1191,7 +1162,7 @@ section {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #2980b9, var(--accent-tertiary));
+    background-color: var(--accent-secondary);
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -1220,7 +1191,7 @@ section {
     transform: translateX(-50%);
     width: 100px;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+    background-color: var(--accent-color);
 }
 
 .footer-bottom p {
@@ -1394,21 +1365,8 @@ a:focus {
 
 /* Hover effects créatifs */
 .section-header h2:hover {
-    background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary), var(--accent-tertiary));
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientText 2s ease infinite;
-}
-
-@keyframes gradientText {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
+    color: var(--accent-color);
+    transition: color 0.3s ease;
 }
 
 /* Effets de survol pour les icônes */
