@@ -58,11 +58,10 @@ function initializeNavigation() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.header');
         if (window.scrollY > 100) {
-            navbar.style.background = 'linear-gradient(135deg, rgba(26, 35, 50, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%)';
-            navbar.style.backdropFilter = 'blur(15px)';
-        } else {
-            navbar.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
+            navbar.style.background = 'rgba(23, 25, 64, 0.95)';
             navbar.style.backdropFilter = 'blur(10px)';
+        } else {
+            navbar.style.background = '#ffffff';
         }
     });
 }
@@ -313,13 +312,12 @@ function initializeBackToTop() {
         right: 30px;
         width: 50px;
         height: 50px;
-        background: var(--accent-color);
+        background: #00638e;
         color: white;
         border: none;
         border-radius: 50%;
         cursor: pointer;
         font-size: 1.2rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
         opacity: 0;
         visibility: hidden;
@@ -431,11 +429,11 @@ style.textContent = `
     
     .back-to-top:hover {
         transform: translateY(-3px) !important;
-        background: var(--accent-hover) !important;
+        background: #003d6a !important;
     }
     
     .keyboard-navigation *:focus {
-        outline: 2px solid var(--accent-color) !important;
+        outline: 2px solid #00638e !important;
         outline-offset: 2px !important;
     }
     
@@ -451,7 +449,7 @@ style.textContent = `
             right: -100%;
             width: 100%;
             height: calc(100vh - 70px);
-            background: var(--primary-color);
+            background: #171940;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
