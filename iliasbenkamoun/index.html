@@ -115,6 +115,117 @@
             background: var(--primary-dark);
         }
 
+
+
+
+.header {
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+}
+
+.brand-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(8%) sepia(59%) saturate(1191%) hue-rotate(204deg) brightness(101%) contrast(101%);
+}
+
+.brand-text h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: var(--primary-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: var(--font-heading);
+}
+
+.brand-text p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    margin: 0;
+    background-color: transparent;
+    padding: 0;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+    padding: var(--spacing-sm) 0;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-size: 0.8rem;
+    border-radius: 0;
+}
+
+.nav-link:hover {
+    color: var(--primary-medium);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-medium);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+    padding: var(--spacing-sm);
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+}
+
+.hamburger span {
+    width: 22px;
+    height: 2px;
+    background-color: var(--primary-dark);
+    transition: var(--transition);
+}
+
+        
         /* Hero Section */
         .hero {
             margin-top: 80px;
