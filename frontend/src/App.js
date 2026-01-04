@@ -141,7 +141,9 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="navbar"> onClick={() => setMenuOpen(!menuOpen)}>
+      <nav className="navbar">
+        <div className="navbar-container">
+          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
             <i className="fa-solid fa-bars"></i>
           </button>
           
@@ -192,9 +194,7 @@ function App() {
             >
               Consulter l'auteur
             </a>
-          </div
-            Recherche
-          </button>
+          </div>
         </div>
       </nav>
 
