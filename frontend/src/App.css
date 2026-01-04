@@ -196,16 +196,7 @@ body {
 
 /* Main Content */
 .main {
-
-.nav-button:hover {
-  background-color: #f0f0f0;
-  color: #170063;
-}
-
-.nav-button.active {
-  background-color: #fdff03;
-  color: #170063;
-  font-weight: 600;
+  flex: 1;
 }
 
 /* Featured Section - Expandable Cards */
