@@ -340,61 +340,6 @@ function App() {
           </div>
         )}
       </main>
-            <div className="content-section">
-              <h2 className="section-title">Articles</h2>
-              <div className="grid">
-                {articles.map((article) => (
-                  <article key={article.id} className="card">
-                    <div className="card-header">
-                      <h3 className="card-title">{article.title}</h3>
-                      {article.category && (
-                        <span className="category">{article.category}</span>
-                      )}
-                    </div>
-                    <div className="card-meta">
-                      <span className="author">{article.author}</span>
-                      <span className="date">{formatDate(article.publishedDate)}</span>
-                    </div>
-                    <p className="card-content">{article.content}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'projects' && (
-            <div className="content-section">
-              <h2 className="section-title">Projets</h2>
-              <div className="grid">
-                {projects.map((project) => (
-                  <article key={project.id} className="card">
-                    <h3 className="card-title">{project.title}</h3>
-                    <div className="card-meta">
-                      <span className="date">{formatDate(project.createdDate)}</span>
-                    </div>
-                    <p className="card-content">{project.description}</p>
-                    {project.technologies && (
-                      <div className="technologies">
-                        <strong>Technologies:</strong> {project.technologies}
-                      </div>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="github-link"
-                      >
-                        Voir sur GitHub →
-                      </a>
-                    )}
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </main>
 
       <footer className="footer">
         <div className="container">
