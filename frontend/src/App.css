@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5;
+  background-color: #fbfbff;
   color: #333;
 }
 
@@ -29,11 +29,11 @@ body {
 
 /* Header */
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #170063 0%, #3a1c9c 50%, #5f2fbd 100%);
   color: white;
   padding: 40px 0;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .title {
@@ -78,12 +78,13 @@ body {
 
 .nav-button:hover {
   background-color: #f0f0f0;
-  color: #333;
+  color: #170063;
 }
 
 .nav-button.active {
-  background-color: #667eea;
-  color: white;
+  background-color: #170063;
+  color: #fdff03;
+  font-weight: 600;
 }
 
 /* Main Content */
@@ -110,7 +111,7 @@ body {
 .section-title {
   font-size: 2rem;
   margin-bottom: 30px;
-  color: #333;
+  color: #170063;
   font-weight: 600;
 }
 
@@ -147,7 +148,8 @@ body {
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(23, 0, 99, 0.2);
+  border: 1px solid rgba(23, 0, 99, 0.1);
 }
 
 .card-header {
@@ -167,12 +169,12 @@ body {
 }
 
 .category {
-  background-color: #667eea;
-  color: white;
+  background-color: #170063;
+  color: #fdff03;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -214,19 +216,20 @@ body {
 .github-link {
   display: inline-block;
   margin-top: 12px;
-  color: #667eea;
+  color: #5f2fbd;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .github-link:hover {
-  color: #764ba2;
+  color: #170063;
+  transform: translateX(4px);
 }
 
 /* Footer */
 .footer {
-  background-color: #333;
+  background: linear-gradient(135deg, #170063 0%, #3a1c9c 100%);
   color: white;
   text-align: center;
   padding: 24px 0;
