@@ -27,31 +27,125 @@ body {
   width: 100%;
 }
 
-/* Header */
-.header {
+/* Navbar principale */
+.navbar {
   background: #170063;
   color: white;
-  padding: 60px 0;
-  text-align: center;
+  padding: 15px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: -1px;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  opacity: 0.95;
-  font-weight: 300;
-  max-width: 600px;
+.navbar-container {
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 }
 
-/* Navigation */
+.menu-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.menu-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar-logo {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-slogan {
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 25px;
+  padding: 8px 15px;
+  gap: 10px;
+  min-width: 250px;
+}
+
+.search-box i {
+  color: white;
+  opacity: 0.7;
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.author-button {
+  background: #fdff03;
+  color: #170063;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.author-button:hover {
+  background: #e6e600;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.author-button i {
+  font-size: 1.1rem;
+}
+
+/* Header - Supprimer */
+/* Header - Supprimer */
+/* Removed - replaced by navbar */
+
+/* Navigation secondaire */
 .nav {
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

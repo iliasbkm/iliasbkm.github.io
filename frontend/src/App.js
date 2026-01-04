@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import logo from './logo.png';
 
 // Données de démonstration - Articles vedettes
 const featuredArticles = [
@@ -137,13 +138,34 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="header">
-        <div className="container">
-          <h1 className="title">Binet</h1>
-          <p className="subtitle">Journal Scientifique Moderne - Exploration, Innovation & Découverte</p>
+    <dinav className="navbar">
+        <div className="navbar-container">
+          <button className="menu-button">
+            <i className="fa-solid fa-bars"></i>
+          </button>
+          
+          <div className="navbar-center">
+            <img src={logo} alt="Binet Logo" className="navbar-logo" />
+            <span className="navbar-slogan">Petit journal scientifique</span>
+          </div>
+          
+          <div className="navbar-right">
+            <div className="search-box">
+              <i className="fa-solid fa-search"></i>
+              <input type="text" placeholder="Rechercher..." />
+            </div>
+            <a 
+              href="https://linkedin.com/in/iliasbenkamoun" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="author-button"
+            >
+              <i className="fa-brands fa-linkedin"></i>
+              Consulter l'auteur
+            </a>
+          </div>
         </div>
-      </header>
+      </nav>
 
       <nav className="nav">
         <div className="container nav-container">
