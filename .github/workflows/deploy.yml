@@ -34,13 +34,19 @@ jobs:
         run: |
           cd frontend
           npm run build
-          cp ../CNAME build/
-          touch build/.nojekyll
+      
+      - name: Prepare deployment
+        run: |
+          rm -rf deploy
+          mkdir deploy
+          cp -r frontend/build/* deploy/
+          cp CNAME deploy/
+          touch deploy/.nojekyll
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: frontend/build
+          path: deploy
 
   deploy:
     environment:
