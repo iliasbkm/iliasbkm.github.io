@@ -138,7 +138,8 @@ function App() {
   };
 
   return (
-    <dinav className="navbar">
+    <div className="App">
+      <nav className="navbar">
         <div className="navbar-container">
           <button className="menu-button">
             <i className="fa-solid fa-bars"></i>
