@@ -161,7 +161,6 @@ function App() {
               rel="noopener noreferrer"
               className="author-button"
             >
-              <i className="fa-brands fa-linkedin"></i>
               Consulter l'auteur
             </a>
           </div>
