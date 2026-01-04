@@ -85,8 +85,8 @@ body {
 }
 
 .nav-button.active {
-  background-color: #170063;
-  color: #fdff03;
+  background-color: #fdff03;
+  color: #170063;
   font-weight: 600;
 }
 
@@ -518,7 +518,7 @@ body {
 
 /* News Cards Section */
 .news-cards-section {
-  background-color: #f9f9f9;
+  background-color: #170063;
   padding: 60px 0;
 }
 
