@@ -200,6 +200,89 @@ function App() {
               </div>
             </section>
 
+            {/* Section News Cards */}
+            <section className="news-cards-section">
+              <div className="content-wrapper">
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Intelligence Artificielle et Santé</h2>
+                    <div className="news-card__post-date">Jan 29, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Découvrez comment l'IA révolutionne le diagnostic médical et améliore les traitements personnalisés&hellip;</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Énergies Renouvelables au Maroc</h2>
+                    <div className="news-card__post-date">Jan 28, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Le Maroc se positionne comme leader africain dans les énergies solaires et éoliennes&hellip;</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Biotechnologie Végétale</h2>
+                    <div className="news-card__post-date">Jan 27, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Nouvelles avancées dans la modification génétique des plantes pour l'agriculture durable&hellip;</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/248486/pexels-photo-248486.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Nanotechnologie Médicale</h2>
+                    <div className="news-card__post-date">Jan 26, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Les nanoparticules ouvrent de nouvelles perspectives dans le traitement du cancer&hellip;</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Exploration Spatiale</h2>
+                    <div className="news-card__post-date">Jan 25, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Les missions vers Mars progressent avec de nouvelles technologies de propulsion innovantes&hellip;</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="news-card">
+                  <a href="#" className="news-card__card-link"></a>
+                  <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" className="news-card__image" />
+                  <div className="news-card__text-wrapper">
+                    <h2 className="news-card__title">Informatique Quantique</h2>
+                    <div className="news-card__post-date">Jan 24, 2026</div>
+                    <div className="news-card__details-wrapper">
+                      <p className="news-card__excerpt">Les ordinateurs quantiques atteignent des records de calcul et promettent des révolutions technologiques.</p>
+                      <a href="#" className="news-card__read-more">Lire plus <i className="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Section Derniers Articles */}
             <section className="latest-articles">
               <div className="container">
