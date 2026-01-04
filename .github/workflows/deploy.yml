@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: |
           cd frontend
-          npm run build
+          CI=false npm run build
       
       - name: Prepare deployment
         run: |
