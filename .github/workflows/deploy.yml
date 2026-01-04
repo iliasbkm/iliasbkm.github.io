@@ -38,10 +38,12 @@ jobs:
       - name: Prepare deployment
         run: |
           rm -rf deploy
-          mkdir deploy
-          cp -r frontend/build/* deploy/
-          cp CNAME deploy/
+          mkdir -p deploy
+          cp -r frontend/build/* deploy/ || echo "Build copy failed"
+          cp CNAME deploy/ || echo "CNAME copy failed"
           touch deploy/.nojekyll
+          ls -la deploy/ || echo "Deploy folder list failed"
+          cat deploy/index.html | head -5 || echo "Index.html not found"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
