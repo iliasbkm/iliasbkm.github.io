@@ -9,7 +9,7 @@ const featuredArticles = [
     excerpt: "L'IA révolutionne le diagnostic médical",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
     category: "IA & Santé",
-    icon: "🤖"
+    icon: "fa-solid fa-brain"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const featuredArticles = [
     excerpt: "Le Maroc leader africain de l'énergie verte",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop",
     category: "Environnement",
-    icon: "☀️"
+    icon: "fa-solid fa-sun"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const featuredArticles = [
     excerpt: "La révolution de la transparence numérique",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop",
     category: "Technologie",
-    icon: "⛓️"
+    icon: "fa-solid fa-link"
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const featuredArticles = [
     excerpt: "Les nouvelles frontières de l'humanité",
     image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=600&fit=crop",
     category: "Espace",
-    icon: "🚀"
+    icon: "fa-solid fa-rocket"
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const featuredArticles = [
     excerpt: "Thérapies géniques et médecine personnalisée",
     image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=600&fit=crop",
     category: "Biotechnologie",
-    icon: "🧬"
+    icon: "fa-solid fa-dna"
   }
 ];
 
@@ -189,7 +189,7 @@ function App() {
                   >
                     <div className="shadow"></div>
                     <div className="label">
-                      <div className="icon">{article.icon}</div>
+                      <div className="icon"><i className={article.icon}></i></div>
                       <div className="info">
                         <div className="main">{article.title}</div>
                         <div className="sub">{article.excerpt}</div>
@@ -204,7 +204,7 @@ function App() {
             <section className="latest-articles">
               <div className="container">
                 <h2 className="section-title">
-                  <span className="title-icon">📰</span> Derniers Articles
+                  <i className="fa-solid fa-newspaper title-icon"></i> Derniers Articles
                 </h2>
                 <div className="grid">
                   {articles.slice(0, 3).map((article) => (
@@ -216,8 +216,8 @@ function App() {
                         )}
                       </div>
                       <div className="card-meta">
-                        <span className="author">👤 {article.author}</span>
-                        <span className="date">📅 {formatDate(article.publishedDate)}</span>
+                        <span className="author"><i className="fa-solid fa-user"></i> {article.author}</span>
+                        <span className="date"><i className="fa-solid fa-calendar"></i> {formatDate(article.publishedDate)}</span>
                       </div>
                       <p className="card-content">{article.content}</p>
                     </article>
@@ -230,26 +230,26 @@ function App() {
             <section className="categories-section">
               <div className="container">
                 <h2 className="section-title">
-                  <span className="title-icon">🔬</span> Explorer par Catégorie
+                  <i className="fa-solid fa-microscope title-icon"></i> Explorer par Catégorie
                 </h2>
                 <div className="categories-grid">
                   <div className="category-card">
-                    <div className="category-icon">🤖</div>
+                    <div className="category-icon"><i className="fa-solid fa-robot"></i></div>
                     <h3>Intelligence Artificielle</h3>
                     <p>Découvrez les avancées en IA et machine learning</p>
                   </div>
                   <div className="category-card">
-                    <div className="category-icon">🌱</div>
+                    <div className="category-icon"><i className="fa-solid fa-leaf"></i></div>
                     <h3>Environnement</h3>
                     <p>Solutions durables et énergies renouvelables</p>
                   </div>
                   <div className="category-card">
-                    <div className="category-icon">🧬</div>
+                    <div className="category-icon"><i className="fa-solid fa-dna"></i></div>
                     <h3>Biotechnologie</h3>
                     <p>Innovations en génétique et médecine</p>
                   </div>
                   <div className="category-card">
-                    <div className="category-icon">🚀</div>
+                    <div className="category-icon"><i className="fa-solid fa-rocket"></i></div>
                     <h3>Espace</h3>
                     <p>Exploration spatiale et astronomie</p>
                   </div>
@@ -262,7 +262,7 @@ function App() {
         {activeTab === 'articles' && (
           <div className="container">
             <h2 className="section-title">
-              <span className="title-icon">📚</span> Tous les Articles
+              <i className="fa-solid fa-book title-icon"></i> Tous les Articles
             </h2>
             <div className="grid">
               {articles.map((article) => (
@@ -274,8 +274,8 @@ function App() {
                     )}
                   </div>
                   <div className="card-meta">
-                    <span className="author">👤 {article.author}</span>
-                    <span className="date">📅 {formatDate(article.publishedDate)}</span>
+                    <span className="author"><i className="fa-solid fa-user"></i> {article.author}</span>
+                    <span className="date"><i className="fa-solid fa-calendar"></i> {formatDate(article.publishedDate)}</span>
                   </div>
                   <p className="card-content">{article.content}</p>
                 </article>
@@ -287,19 +287,19 @@ function App() {
         {activeTab === 'projets' && (
           <div className="container">
             <h2 className="section-title">
-              <span className="title-icon">💡</span> Nos Projets
+              <i className="fa-solid fa-lightbulb title-icon"></i> Nos Projets
             </h2>
             <div className="grid">
               {projects.map((project) => (
                 <article key={project.id} className="card">
                   <h3 className="card-title">{project.title}</h3>
                   <div className="card-meta">
-                    <span className="date">📅 {formatDate(project.createdDate)}</span>
+                    <span className="date"><i className="fa-solid fa-calendar"></i> {formatDate(project.createdDate)}</span>
                   </div>
                   <p className="card-content">{project.description}</p>
                   {project.technologies && (
                     <div className="technologies">
-                      <strong>💻 Technologies:</strong> {project.technologies}
+                      <strong><i className="fa-solid fa-laptop-code"></i> Technologies:</strong> {project.technologies}
                     </div>
                   )}
                   {project.githubUrl && (
@@ -321,19 +321,19 @@ function App() {
         {activeTab === 'recherche' && (
           <div className="container">
             <h2 className="section-title">
-              <span className="title-icon">🔍</span> Centre de Recherche
+              <i className="fa-solid fa-magnifying-glass title-icon"></i> Centre de Recherche
             </h2>
             <div className="research-info">
               <div className="info-card">
-                <h3>🎯 Notre Mission</h3>
+                <h3><i className="fa-solid fa-bullseye"></i> Notre Mission</h3>
                 <p>Promouvoir la recherche scientifique et l'innovation au Maroc et en Afrique</p>
               </div>
               <div className="info-card">
-                <h3>🤝 Collaboration</h3>
+                <h3><i className="fa-solid fa-handshake"></i> Collaboration</h3>
                 <p>Partenariats avec des institutions de recherche internationales</p>
               </div>
               <div className="info-card">
-                <h3>📊 Domaines</h3>
+                <h3><i className="fa-solid fa-chart-simple"></i> Domaines</h3>
                 <p>IA, Biotechnologie, Énergies Renouvelables, Nanotechnologie</p>
               </div>
             </div>
@@ -345,7 +345,7 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-section">
-              <h3>📚 Binet</h3>
+              <h3><i className="fa-solid fa-book"></i> Binet</h3>
               <p>Journal Scientifique Moderne</p>
               <p>Exploration, Innovation & Découverte</p>
             </div>
@@ -360,8 +360,8 @@ function App() {
             </div>
             <div className="footer-section">
               <h4>Contact</h4>
-              <p>📧 contact@binetmaroc.me</p>
-              <p>🌐 www.binetmaroc.me</p>
+              <p><i className="fa-solid fa-envelope"></i> contact@binetmaroc.me</p>
+              <p><i className="fa-solid fa-globe"></i> www.binetmaroc.me</p>
             </div>
           </div>
           <div className="footer-bottom">

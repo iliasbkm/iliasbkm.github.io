@@ -29,7 +29,7 @@ body {
 
 /* Header */
 .header {
-  background: linear-gradient(135deg, #170063 0%, #3a1c9c 50%, #5f2fbd 100%);
+  background: #170063;
   color: white;
   padding: 60px 0;
   text-align: center;
