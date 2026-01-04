@@ -127,6 +127,8 @@ const demoProjects = [
 function App() {
   const [activeTab, setActiveTab] = useState('accueil');
   const [activeFeature, setActiveFeature] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   
   // Utilisation directe des données de démonstration
   const articles = demoArticles;
@@ -139,11 +141,26 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="navbar">
-        <div className="navbar-container">
-          <button className="menu-button">
+      <nav className="navbar"> onClick={() => setMenuOpen(!menuOpen)}>
             <i className="fa-solid fa-bars"></i>
           </button>
+          
+          {menuOpen && (
+            <div className="menu-dropdown">
+              <button onClick={() => { setActiveTab('accueil'); setMenuOpen(false); }}>
+                Accueil
+              </button>
+              <button onClick={() => { setActiveTab('articles'); setMenuOpen(false); }}>
+                Articles
+              </button>
+              <button onClick={() => { setActiveTab('projets'); setMenuOpen(false); }}>
+                Projets
+              </button>
+              <button onClick={() => { setActiveTab('recherche'); setMenuOpen(false); }}>
+                Recherche
+              </button>
+            </div>
+          )}
           
           <div className="navbar-center">
             <img src={logo} alt="Binet Logo" className="navbar-logo" />
@@ -151,10 +168,22 @@ function App() {
           </div>
           
           <div className="navbar-right">
-            <div className="search-box">
-              <i className="fa-solid fa-search"></i>
-              <input type="text" placeholder="Rechercher..." />
-            </div>
+            {!searchOpen && (
+              <button className="search-button" onClick={() => setSearchOpen(true)}>
+                <i className="fa-solid fa-search"></i>
+              </button>
+            )}
+            {searchOpen && (
+              <div className="search-box">
+                <i className="fa-solid fa-search"></i>
+                <input 
+                  type="text" 
+                  placeholder="Rechercher..." 
+                  autoFocus
+                  onBlur={() => setSearchOpen(false)}
+                />
+              </div>
+            )}
             <a 
               href="https://linkedin.com/in/iliasbenkamoun" 
               target="_blank" 
@@ -163,34 +192,7 @@ function App() {
             >
               Consulter l'auteur
             </a>
-          </div>
-        </div>
-      </nav>
-
-      <nav className="nav">
-        <div className="container nav-container">
-          <button
-            className={`nav-button ${activeTab === 'accueil' ? 'active' : ''}`}
-            onClick={() => setActiveTab('accueil')}
-          >
-            Accueil
-          </button>
-          <button
-            className={`nav-button ${activeTab === 'articles' ? 'active' : ''}`}
-            onClick={() => setActiveTab('articles')}
-          >
-            Articles
-          </button>
-          <button
-            className={`nav-button ${activeTab === 'projets' ? 'active' : ''}`}
-            onClick={() => setActiveTab('projets')}
-          >
-            Projets
-          </button>
-          <button
-            className={`nav-button ${activeTab === 'recherche' ? 'active' : ''}`}
-            onClick={() => setActiveTab('recherche')}
-          >
+          </div
             Recherche
           </button>
         </div>
