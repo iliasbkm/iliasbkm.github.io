@@ -143,30 +143,30 @@ function App() {
     <div className="App">
       <nav className="navbar">
         <div className="navbar-container">
-          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
-            <i className="fa-solid fa-bars"></i>
-          </button>
-          
-          {menuOpen && (
-            <div className="menu-dropdown">
-              <button onClick={() => { setActiveTab('accueil'); setMenuOpen(false); }}>
-                Accueil
-              </button>
-              <button onClick={() => { setActiveTab('articles'); setMenuOpen(false); }}>
-                Articles
-              </button>
-              <button onClick={() => { setActiveTab('projets'); setMenuOpen(false); }}>
-                Projets
-              </button>
-              <button onClick={() => { setActiveTab('recherche'); setMenuOpen(false); }}>
-                Recherche
-              </button>
-            </div>
-          )}
-          
-          <div className="navbar-center">
+          <div className="navbar-left">
+            <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+              <i className="fa-solid fa-bars"></i>
+            </button>
+            
+            {menuOpen && (
+              <div className="menu-dropdown">
+                <button onClick={() => { setActiveTab('accueil'); setMenuOpen(false); }}>
+                  Accueil
+                </button>
+                <button onClick={() => { setActiveTab('articles'); setMenuOpen(false); }}>
+                  Articles
+                </button>
+                <button onClick={() => { setActiveTab('projets'); setMenuOpen(false); }}>
+                  Projets
+                </button>
+                <button onClick={() => { setActiveTab('recherche'); setMenuOpen(false); }}>
+                  Recherche
+                </button>
+              </div>
+            )}
+            
             <img src={logo} alt="Binet Logo" className="navbar-logo" />
-            <span className="navbar-slogan">Petit journal scientifique</span>
+            <span className="navbar-slogan">Petit <strong>journal</strong> scientifique</span>
           </div>
           
           <div className="navbar-right">

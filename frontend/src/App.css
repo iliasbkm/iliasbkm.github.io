@@ -44,8 +44,15 @@ body {
   padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   position: relative;
 }
 
@@ -66,8 +73,8 @@ body {
 
 .menu-dropdown {
   position: absolute;
-  top: 100%;
-  left: 20px;
+  top: calc(100% + 30px);
+  left: 0;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -94,14 +101,6 @@ body {
   background: #f0f0f0;
 }
 
-.navbar-center {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex: 1;
-  justify-content: center;
-}
-
 .navbar-logo {
   height: 50px;
   width: auto;
@@ -113,6 +112,10 @@ body {
   font-weight: 300;
   font-style: italic;
   opacity: 0.95;
+}
+
+.navbar-slogan strong {
+  font-weight: 600;
 }
 
 .navbar-right {
