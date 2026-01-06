@@ -1,29 +1,39 @@
 package com.binet.backend.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.env.EnvironmentPostProcessor;
-import org.springframework.core.env.ConfigurableEnvironment;
-import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.PropertiesPropertySource;
+import javax.sql.DataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
-import java.util.Properties;
+@Configuration
+public class DatabaseConfig {
 
-public class DatabaseUrlProcessor implements EnvironmentPostProcessor {
-
-    @Override
-    public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
-        String databaseUrl = environment.getProperty("DATABASE_URL");
+    @Bean
+    @Primary
+    public DataSource dataSource() {
+        String databaseUrl = System.getenv("DATABASE_URL");
         
-        // Si DATABASE_URL commence par postgresql://, le transformer en jdbc:postgresql://
         if (databaseUrl != null && databaseUrl.startsWith("postgresql://")) {
+            // Transformer postgresql:// en jdbc:postgresql://
             String jdbcUrl = "jdbc:" + databaseUrl;
             
-            // Créer une nouvelle propriété avec l'URL transformée
-            Properties props = new Properties();
-            props.put("spring.datasource.url", jdbcUrl);
-            
-            MutablePropertySources sources = environment.getPropertySources();
-            sources.addFirst(new PropertiesPropertySource("database-url-transformer", props));
+            return DataSourceBuilder.create()
+                    .url(jdbcUrl)
+                    .driverClassName("org.postgresql.Driver")
+                    .username(System.getenv("SPRING_DATASOURCE_USERNAME"))
+                    .password(System.getenv("SPRING_DATASOURCE_PASSWORD"))
+                    .build();
         }
+        
+        // Fallback à H2 pour développement
+        return DataSourceBuilder.create()
+                .url("jdbc:h2:mem:binetdb")
+                .driverClassName("org.h2.Driver")
+                .username("sa")
+                .password("")
+                .build();
     }
 }
+
