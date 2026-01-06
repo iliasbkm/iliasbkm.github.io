@@ -1591,6 +1591,22 @@ body {
   font-size: 1.05rem;
 }
 
+/* Loading and Error Messages */
+.loading-message, .error-message {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 1.2rem;
+  color: #fdff03;
+}
+
+.error-message {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 10px;
+  margin: 20px;
+}
+
 /* Footer */
 .footer {
   background: linear-gradient(135deg, #170063 0%, #3a1c9c 100%);
