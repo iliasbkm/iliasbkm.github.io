@@ -2,17 +2,12 @@
 FROM maven:3.9-eclipse-temurin-17-alpine AS build
 WORKDIR /app
 
-# Copy pom.xml
+# Copy pom.xml and source
 COPY pom.xml .
-
-# Download dependencies
-RUN mvn dependency:go-offline -B
-
-# Copy source code
 COPY src ./src
 
-# Build the application
-RUN mvn clean package -DskipTests -B
+# Build the application with production profile
+RUN mvn clean package -DskipTests -Pproduction -B
 
 # Runtime stage
 FROM eclipse-temurin:17-jre-alpine
@@ -21,8 +16,12 @@ WORKDIR /app
 # Copy the built artifact from build stage
 COPY --from=build /app/target/*.jar app.jar
 
-# Expose the port (Railway will override with PORT env var)
+# Expose the port
 EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD java -cp app.jar org.springframework.boot.loader.JarLauncher || exit 1
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
