@@ -7,7 +7,7 @@ COPY backend/pom.xml .
 COPY backend/src ./src
 
 # Build the application with production profile
-RUN mvn clean package -DskipTests -Pproduction -B
+RUN mvn clean package -DskipTests -Pproduction -B -X
 
 # Runtime stage
 FROM eclipse-temurin:17-jre-alpine
@@ -18,10 +18,6 @@ COPY --from=build /app/target/*.jar app.jar
 
 # Expose the port
 EXPOSE 8080
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/api/articles || exit 1
 
 # Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
