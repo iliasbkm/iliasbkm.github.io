@@ -13,9 +13,14 @@ public class DataSourceConfiguration {
     @Primary
     public DataSource dataSource() {
         String dbUrl = System.getenv("DATABASE_URL");
+        String dbHost = System.getenv("DB_HOST");
+        String dbPort = System.getenv("DB_PORT");
+        String dbName = System.getenv("DB_NAME");
+        String dbUser = System.getenv("DB_USER");
+        String dbPassword = System.getenv("DB_PASSWORD");
 
+        // Try DATABASE_URL first
         if (dbUrl != null && !dbUrl.trim().isEmpty()) {
-            // Add jdbc: prefix if needed
             if (dbUrl.startsWith("postgresql://")) {
                 dbUrl = "jdbc:" + dbUrl;
             }
@@ -25,11 +30,26 @@ public class DataSourceConfiguration {
                     .build();
         }
 
-        // Fallback for local development
+        // Try individual env vars
+        if (dbHost != null && !dbHost.trim().isEmpty()) {
+            String port = (dbPort != null) ? dbPort : "5432";
+            String name = (dbName != null) ? dbName : "koyebdb";
+            String user = (dbUser != null) ? dbUser : "postgres";
+            String password = (dbPassword != null) ? dbPassword : "";
+            
+            return DataSourceBuilder.create()
+                    .url("jdbc:postgresql://" + dbHost + ":" + port + "/" + name)
+                    .username(user)
+                    .password(password)
+                    .driverClassName("org.postgresql.Driver")
+                    .build();
+        }
+
+        // Fallback - Koyeb PostgreSQL
         return DataSourceBuilder.create()
-                .url("jdbc:postgresql://localhost:5432/binet")
-                .username("postgres")
-                .password("postgres")
+                .url("jdbc:postgresql://ep-still-dawn-agxuv65v.c-2.eu-central-1.pg.koyeb.app:5432/koyebdb")
+                .username("koyeb-adm")
+                .password("npg_9eGhHSV2gQFl")
                 .driverClassName("org.postgresql.Driver")
                 .build();
     }
